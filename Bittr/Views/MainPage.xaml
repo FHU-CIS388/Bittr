@@ -5,8 +5,10 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:views="clr-namespace:Bittr.Views"
-           UnselectedTabColor="{StaticResource Gray}"
+            BarTextColor="White"
+            UnselectedTabColor="{StaticResource Gray}"
             SelectedTabColor="{StaticResource DarkYellow}"
+            BarBackgroundColor="{StaticResource DarkYellow}"
             x:Class="Bittr.Views.MainPage">
     <TabbedPage.Children>
 
