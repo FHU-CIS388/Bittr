@@ -1,8 +1,131 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              Title="TRENDING"
              x:Class="Bittr.Views.TrendingPage">
     <ContentPage.Content>
+        <ScrollView>
+            <Grid BackgroundColor="{StaticResource DarkYellow}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="200"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" BackgroundColor="{StaticResource Black}" Padding="20" Margin="0,-5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Column="0">
+                        <controls:CircleImage
+                    Source="dshannon.jpg"
+                    WidthRequest="70"
+                    HeightRequest="70"
+                    HorizontalOptions="Center"
+                    TranslationY="0"
+                    Aspect="AspectFill"
+                    BorderColor="Gray"
+                    BorderThickness="2"
+                    Grid.Row="0" 
+                        
+                    Grid.Column="0"/>
+
+                        <Label Text="David Shannon" HorizontalOptions="Center" TextColor="{StaticResource LightYellow}" FontSize="17" HorizontalTextAlignment="Center">
+                        </Label>
+
+                    </StackLayout>
+                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="{StaticResource DarkYellow}" ></BoxView>
+                    <Label Grid.Column="1" Grid.Row="0" Text="It is so cold in Loyd! I hate it and I can't deal with it anymore." TextColor="{StaticResource Black}" Margin="35,25,5,5" FontSize="18"></Label>
+                    <Image x:Name="downArrow"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
+                    <Image x:Name="upArrow"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"></Image>
+                    <Image x:Name="comment"  Grid.Column="1" Grid.Row="1" Source="comment.png" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
+                </Grid>
+                <Grid Grid.Row="1" BackgroundColor="{StaticResource Black}" Padding="20" Margin="0,-5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Column="0">
+                        <controls:CircleImage
+                    Source="uncleBob.jpg"
+                    WidthRequest="70"
+                    HeightRequest="70"
+                    HorizontalOptions="Center"
+                    TranslationY="0"
+                    Aspect="AspectFill"
+                    BorderColor="Gray"
+                    BorderThickness="2"
+                    Grid.Row="0" 
+                        
+                    Grid.Column="0"/>
+
+                        <Label Text="Uncle Bob" HorizontalOptions="Center" TextColor="white" FontSize="17" HorizontalTextAlignment="Center">
+                        </Label>
+
+                    </StackLayout>
+                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="{StaticResource DarkYellow}" ></BoxView>
+                    <Label Grid.Column="1" Grid.Row="0" Text="LP is never open when I need it!" TextColor="{StaticResource Black}" Margin="35,25,5,5" FontSize="18"></Label>
+                    <Image x:Name="downArrow1"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
+                    <Image x:Name="upArrow1"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"></Image>
+                    <Image x:Name="comment1"  Grid.Column="1" Grid.Row="1" Source="comment.png" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
+                </Grid>
+
+                <Grid Grid.Row="2" BackgroundColor="{StaticResource Black}" Padding="20" Margin="0,-5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Column="0">
+                        <controls:CircleImage
+                    Source="linus.jpg"
+                    WidthRequest="70"
+                    HeightRequest="70"
+                    HorizontalOptions="Center"
+                    TranslationY="0"
+                    Aspect="AspectFill"
+                    BorderColor="Gray"
+                    BorderThickness="2"
+                    Grid.Row="0" 
+                        
+                    Grid.Column="0"/>
+
+                        <Label Text="Linus Torvalds" HorizontalOptions="Center" TextColor="White" FontSize="17" HorizontalTextAlignment="Center">
+                        </Label>
+
+                    </StackLayout>
+                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="{StaticResource DarkYellow}" ></BoxView>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Windows is dumb and so are you." TextColor="{StaticResource Black}" Margin="35,25,5,5" FontSize="18"></Label>
+                    <Image x:Name="downArrow2"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
+                    <Image x:Name="upArrow2"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"></Image>
+                    <Image x:Name="comment2"  Grid.Column="1" Grid.Row="1" Source="comment.png" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
+                </Grid>
+
+
+
+
+
+
+            </Grid>
+
+
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
