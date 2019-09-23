@@ -18,32 +18,34 @@
                          HorizontalOptions="FillAndExpand"
                          Padding="16">
 
-                <Label
-                    Margin="0, 0, 32, 0"
-                    FontSize="24"
-                    HorizontalOptions="StartAndExpand"
-                    HorizontalTextAlignment="End"
-                    >
-                    
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="What are you " />
-                                <Span Text="BITTER"
-                                      FontAttributes="Bold"
-                                      FontSize="72" />
-                                <Span Text=" about today?" />
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                <StackLayout Orientation="Vertical">
+                    <Label
+                        Margin="0, 0, 32, 0"
+                        FontSize="24"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="End"
+                        
+                        Text="What are you " />
+
+                    <Label Margin="0, 0, 32, 0"
+                           FontSize="72"
+                           HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="End"
+                           Text="BITTER" />
+
+                    <Label Margin="0, 0, 32, 0"
+                           FontSize="24"
+                           HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="End"
+                           Text="about today?" />
+
+                </StackLayout>
 
                 <Image Source="lemon1"
                        WidthRequest="100"
                        HorizontalOptions="Start" />
 
             </StackLayout>
-
 
         </Grid>
 
