@@ -8,20 +8,20 @@
         <ScrollView>
             <Grid BackgroundColor="{StaticResource DarkYellow}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
 
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" BackgroundColor="{StaticResource Black}" Padding="20" Margin="0,-5,0,0">
+                <Grid Grid.Row="0" BackgroundColor="{StaticResource LightYellow}" Padding="20" Margin="0,-5,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70"/>
 
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
-
+                        <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Column="0">
@@ -32,30 +32,42 @@
                     HorizontalOptions="Center"
                     TranslationY="0"
                     Aspect="AspectFill"
-                    BorderColor="Gray"
+                    BorderColor="{StaticResource DarkYellow}"
                     BorderThickness="2"
                     Grid.Row="0" 
                         
                     Grid.Column="0"/>
 
-                        <Label Text="David Shannon" HorizontalOptions="Center" TextColor="{StaticResource LightYellow}" FontSize="17" HorizontalTextAlignment="Center">
+                        <Label Text="David Shannon" HorizontalOptions="Center" TextColor="{StaticResource Black}" FontSize="17" HorizontalTextAlignment="Center">
                         </Label>
 
                     </StackLayout>
-                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="{StaticResource DarkYellow}" ></BoxView>
-                    <Label Grid.Column="1" Grid.Row="0" Text="It is so cold in Loyd! I hate it and I can't deal with it anymore." TextColor="{StaticResource Black}" Margin="35,25,5,5" FontSize="18"></Label>
-                    <Image x:Name="downArrow"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
-                    <Image x:Name="upArrow"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"></Image>
-                    <Image x:Name="comment"  Grid.Column="1" Grid.Row="1" Source="comment.png" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
+                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="white" ></BoxView>
+                    <Label Grid.Column="1" Grid.Row="0" Text="It is so cold in Loyd! I hate it and I can't deal with it anymore." TextColor="{StaticResource Black}" Margin="20,5,20,5" FontSize="18"></Label>
+
+                    <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40">
+                        <Image x:Name="downArrow"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
+                        <Label Text="Down" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                    </StackLayout>
+
+                    <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  MinimumHeightRequest="10" MinimumWidthRequest="20" WidthRequest="50">
+                        <Image x:Name="upArrow"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFill" MinimumHeightRequest="20" MinimumWidthRequest="30" WidthRequest="60" HeightRequest="60"></Image>
+                        <Label Text="Up" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                    </StackLayout>
+                    
+                    <Image x:Name="upArrow0"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"></Image>
+                    
+
+                        <Image x:Name="lemon"  Grid.Column="1" Grid.Row="1" Source="lemon7.jpg" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
                 </Grid>
-                <Grid Grid.Row="1" BackgroundColor="{StaticResource Black}" Padding="20" Margin="0,-5,0,0">
+                <Grid Grid.Row="1" BackgroundColor="{StaticResource LightYellow}" Padding="20" Margin="0,-5,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70"/>
 
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
-
+                        <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Column="0">
@@ -66,7 +78,7 @@
                     HorizontalOptions="Center"
                     TranslationY="0"
                     Aspect="AspectFill"
-                    BorderColor="Gray"
+                    BorderColor="{StaticResource DarkYellow}"
                     BorderThickness="2"
                     Grid.Row="0" 
                         
@@ -76,21 +88,31 @@
                         </Label>
 
                     </StackLayout>
-                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="{StaticResource DarkYellow}" ></BoxView>
-                    <Label Grid.Column="1" Grid.Row="0" Text="LP is never open when I need it!" TextColor="{StaticResource Black}" Margin="35,25,5,5" FontSize="18"></Label>
-                    <Image x:Name="downArrow1"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
+                    <BoxView Grid.Column="1" CornerRadius="10" BackgroundColor="white" ></BoxView>
+                    <Label Grid.Column="1" Grid.Row="0" Text="LP is never open when I need!" TextColor="{StaticResource Black}" Margin="25,5,20,5" FontSize="18"></Label>
+
+                    <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40">
+                        <Image x:Name="downArrow1"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
+                        <Label Text="Down" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                    </StackLayout>
+
+                    <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  MinimumHeightRequest="10" MinimumWidthRequest="20" WidthRequest="50">
+                        <Image x:Name="upArrowMid"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFill" MinimumHeightRequest="20" MinimumWidthRequest="30" WidthRequest="60" HeightRequest="60"></Image>
+                        <Label Text="Up" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                    </StackLayout>
+
                     <Image x:Name="upArrow1"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"></Image>
-                    <Image x:Name="comment1"  Grid.Column="1" Grid.Row="1" Source="comment.png" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
+                    <Image x:Name="comment1"  Grid.Column="1" Grid.Row="1" Source="lemon7.jpg" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
                 </Grid>
 
-                <Grid Grid.Row="2" BackgroundColor="{StaticResource Black}" Padding="20" Margin="0,-5,0,0">
+                <Grid Grid.Row="2" BackgroundColor="{StaticResource LightYellow}" Padding="20" Margin="0,-5,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70"/>
 
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
-
+                        <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Column="0">
@@ -101,7 +123,7 @@
                     HorizontalOptions="Center"
                     TranslationY="0"
                     Aspect="AspectFill"
-                    BorderColor="Gray"
+                    BorderColor="{StaticResource DarkYellow}"
                     BorderThickness="2"
                     Grid.Row="0" 
                         
@@ -111,11 +133,25 @@
                         </Label>
 
                     </StackLayout>
-                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="{StaticResource DarkYellow}" ></BoxView>
-                    <Label Grid.Column="1" Grid.Row="0" Text="Windows is dumb and so are you." TextColor="{StaticResource Black}" Margin="35,25,5,5" FontSize="18"></Label>
-                    <Image x:Name="downArrow2"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
+                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="White" ></BoxView>
+                    
+                    
+                    
+                    
+                    <Label Grid.Column="1" Grid.Row="0" Text="hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhWindows is dumb and so are you." TextColor="{StaticResource Black}" Margin="25,5,20,5" FontSize="18"></Label>
+
+                    <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40">
+                        <Image x:Name="downArrow2"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
+                        <Label Text="Down" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="{StaticResource LightYellow}"  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  MinimumHeightRequest="10" MinimumWidthRequest="20" WidthRequest="50">
+                        <Image x:Name="upArrowBottom"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFill" MinimumHeightRequest="20" MinimumWidthRequest="30" WidthRequest="60" HeightRequest="60"></Image>
+                        <Label Text="Up" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                    </StackLayout>
+
                     <Image x:Name="upArrow2"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"></Image>
-                    <Image x:Name="comment2"  Grid.Column="1" Grid.Row="1" Source="comment.png" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
+                    <Image x:Name="comment2"  Grid.Column="1" Grid.Row="1" Source="lemon7.jpg" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
                 </Grid>
 
 
