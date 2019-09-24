@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="BITTR"
              xmlns:controls="clr-namespace:Bittr.Controls;assembly=Bittr"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="Bittr.Views.HomePage">
     <ContentPage.Content>
         <ScrollView>
@@ -50,12 +51,15 @@
                 <StackLayout>
                     <ListView x:Name="ComplaintFeed"
                               HasUnevenRows="True"
-                              SeparatorVisibility="None">
+                              SeparatorVisibility="None"
+                              ItemSelected="Handle_ComplaintSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Frame Margin="0,10,0,10"
-                                           CornerRadius="0">
+                                    <yummy:PancakeView BackgroundColor="White"
+                                           CornerRadius="2"
+                                           HasShadow="True"
+                                           Margin="0,10,0,10">
                                         <StackLayout>
                                             <Image Source="{Binding ImageURL}"
                                                    Aspect="AspectFill"
@@ -92,7 +96,7 @@
                                                          ProgressColor="Green"
                                                          HorizontalOptions="FillAndExpand"/>
                                         </StackLayout>
-                                    </Frame>
+                                    </yummy:PancakeView>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>

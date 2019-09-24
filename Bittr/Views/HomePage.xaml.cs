@@ -53,7 +53,8 @@ namespace Bittr.Views
                             Type = InteractionType.DOWNVOTE,
                             UserId = 4
                         }
-                    }
+                    },
+                    Timestamp = new DateTime(2019,09,24)
                 },
                 new Complaint
                 {
@@ -100,6 +101,12 @@ namespace Bittr.Views
             };
 
             ComplaintFeed.ItemsSource = Complaints;
+        }
+
+        void Handle_ComplaintSelected(object sender, ItemTappedEventArgs e)
+        {
+            Complaint complaint = (Complaint)ComplaintFeed.SelectedItem;
+            Navigation.PushAsync(new ComplaintPage(complaint));
         }
     }
 }
