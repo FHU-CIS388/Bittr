@@ -76,14 +76,14 @@
                                                              Grid.Column="0">
                                                              <Label Text="👍"
                                                                     HorizontalTextAlignment="Center"/>
-                                                             <Label Text="{Binding Upvotes}"
+                                                             <Label Text="{Binding Upvotes.Count}"
                                                                     HorizontalTextAlignment="Center"/>
                                                 </StackLayout>
                                                 <StackLayout Grid.Row="0"
                                                              Grid.Column="2">
                                                              <Label Text="👎"
                                                                     HorizontalTextAlignment="Center"/>
-                                                             <Label Text="{Binding Downvotes}"
+                                                             <Label Text="{Binding Downvotes.Count}"
                                                                     HorizontalTextAlignment="Center"/>
                                                 </StackLayout>
                                             </Grid>
