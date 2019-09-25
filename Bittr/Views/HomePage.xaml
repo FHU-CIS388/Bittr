@@ -36,8 +36,12 @@
 
                                 <Label Text="{Binding Text}" FontSize="Large" />
                                 <Label Text="{Binding Creator.Username}" FontSize="Medium" />
-
+                                
                                 <Label Text="{Binding Timestamp}" FontSize="Caption" />
+
+                                <ImageButton Source="up.png" WidthRequest="50" Aspect="AspectFit" />
+                                <ImageButton Source="down.png" WidthRequest="50" Aspect="AspectFit" />
+
 
                             </StackLayout>
                         </ViewCell>
