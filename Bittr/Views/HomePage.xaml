@@ -32,7 +32,6 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                                <Label Text="{Binding Text}" FontSize="Large" />
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
