@@ -32,18 +32,49 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Grid.Row="2" Orientation="Vertical">
-
                                 <Label Text="{Binding Text}" FontSize="Large" />
-                                <Label Text="{Binding Creator.Username}" FontSize="Medium" />
-                                
-                                <Label Text="{Binding Timestamp}" FontSize="Caption" />
-
-                                <ImageButton Source="up.png" WidthRequest="50" Aspect="AspectFit" />
-                                <ImageButton Source="down.png" WidthRequest="50" Aspect="AspectFit" />
-
-
-                            </StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0" Orientation="Vertical">
+                                            <ImageButton Source="up.png" WidthRequest="50" Aspect="AspectFit" />
+                                            <ImageButton Source="down.png" WidthRequest="50" Aspect="AspectFit" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="1" Orientation="Vertical">
+                                            <Label Text="{Binding Text}" FontSize="Large" />
+                                            <Label Text="{Binding Creator.Username}" FontSize="Medium" />
+                                            <Label Text="{Binding Timestamp}" FontSize="Caption" />
+                                            <Label Text="#tag1 #tag2 #tag3" FontSize="Caption"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0" Orientation="Vertical">
+                                            <Label Text="Favorite" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="1" Orientation="Vertical">
+                                            <Label Text="View Progress" FontSize="Medium"  HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="2" Orientation="Vertical">
+                                            <Label Text="Report" FontSize="Medium"  HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
