@@ -7,6 +7,8 @@ namespace Bittr.Models
 
         public DateTime Timestamp { get; set; }
 
+        public string ImageName { get; set; }
+
         public User Creator { get; set; }
         
         public Complaint()

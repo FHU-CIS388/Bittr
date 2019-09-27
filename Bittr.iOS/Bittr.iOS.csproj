@@ -137,6 +137,9 @@
     <BundleResource Include="Resources\up.png" />
     <BundleResource Include="Resources\down_filled.png" />
     <BundleResource Include="Resources\down.png" />
+    <BundleResource Include="Resources\Bitter-Bold.ttf" />
+    <BundleResource Include="Resources\Bitter-Italic.ttf" />
+    <BundleResource Include="Resources\Bitter-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

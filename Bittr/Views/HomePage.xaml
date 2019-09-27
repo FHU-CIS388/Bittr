@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="BITTR" x:Class="Bittr.Views.HomePage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="BITTR" x:Class="Bittr.Views.HomePage">
 
     <ContentPage.Content>
 
@@ -16,11 +14,11 @@
             <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="16">
 
                 <StackLayout Orientation="Vertical">
-                    <Label Margin="0, 0, 32, 0" FontSize="24" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Text="What are you " />
+                    <Label Margin="0, 0, 32, 0" FontFamily="{StaticResource RegularFont}" FontSize="24" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Text="What are you " />
 
-                    <Label Margin="0, 0, 32, 0" FontSize="72" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Text="BITTER" />
+                    <Label Margin="0, 0, 32, 0" FontFamily="{StaticResource BoldFont}" FontSize="66" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Text="BITTER" />
 
-                    <Label Margin="0, 0, 32, 0" FontSize="24" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Text="about today?" />
+                    <Label Margin="0, 0, 32, 0" FontFamily="{StaticResource RegularFont}" FontSize="24" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Text="about today?" />
 
                 </StackLayout>
 
@@ -36,8 +34,10 @@
 
                                 <Label Text="{Binding Text}" FontSize="Large" />
                                 <Label Text="{Binding Creator.Username}" FontSize="Medium" />
-                                
+
                                 <Label Text="{Binding Timestamp}" FontSize="Caption" />
+
+                                <Image Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" Aspect="AspectFit" />
 
                                 <ImageButton Source="up.png" WidthRequest="50" Aspect="AspectFit" />
                                 <ImageButton Source="down.png" WidthRequest="50" Aspect="AspectFit" />
