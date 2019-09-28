@@ -65,6 +65,9 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\Bitter-Regular.ttf" />
+    <BundleResource Include="Resources\Bitter-Bold.ttf" />
+    <BundleResource Include="Resources\Bitter-Italic.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -158,5 +161,23 @@
       <Project>{34440539-9FA2-4919-A51E-AC92AAD1D123}</Project>
       <Name>Bittr</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\downvote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\upvote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lemonheart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ellipses.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\loyd1.png" />
   </ItemGroup>
 </Project>

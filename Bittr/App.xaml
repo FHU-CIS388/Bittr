@@ -24,6 +24,23 @@
                 <Setter Property="BarTextColor"
                         Value="White" />
             </Style>
+            
+            <!-- Fonts -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="RegularFont">
+                <On Platform="Android" Value="Bitter-Regular.ttf#Bitter"/>
+                <On Platform="iOS" Value="Bitter-Regular"/>
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="Bitter-Bold.ttf#Bitter"/>
+                <On Platform="iOS" Value="Bitter-Bold"/>
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="ItalicFont">
+                <On Platform="Android" Value="Bitter-Italic.ttf#Bitter"/>
+                <On Platform="iOS" Value="Bitter-Italic"/>
+            </OnPlatform>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
