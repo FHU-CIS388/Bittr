@@ -44,7 +44,7 @@
 
             </StackLayout>
 
-            <ImageButton Source="lemon7.jpg" MinimumHeightRequest="10" MinimumWidthRequest="10" HeightRequest="10" WidthRequest="10" ></ImageButton>
+            
         </Grid>
 
     </ContentPage.Content>
