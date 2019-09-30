@@ -25,25 +25,29 @@
                 <Image Source="lemon1" WidthRequest="100" HorizontalOptions="Start" />
 
             </StackLayout>
+            
 
             <ListView Grid.Row="2" ItemsSource="{Binding Complaints}" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Grid.Row="2" Orientation="Vertical">
+                            <Frame BorderColor="Black" HasShadow="True" Margin="10">
 
-                                <Label Text="{Binding Text}" FontSize="Large" />
-                                <Label Text="{Binding Creator.Username}" FontSize="Medium" />
+                                <StackLayout Grid.Row="2" Orientation="Vertical">
 
-                                <Label Text="{Binding Timestamp}" FontSize="Caption" />
+                                    <Label Text="{Binding Text}" FontSize="Large" />
+                                    <Label Text="{Binding Creator.Username}" FontSize="Medium" />
 
-                                <Image Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" Aspect="AspectFit" />
+                                    <Label Text="{Binding Timestamp}" FontSize="Caption" />
 
-                                <ImageButton Source="up.png" WidthRequest="50" Aspect="AspectFit" />
-                                <ImageButton Source="down.png" WidthRequest="50" Aspect="AspectFit" />
+                                    <Image Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" Aspect="AspectFit" />
+
+                                    <ImageButton Source="up.png" WidthRequest="50" Aspect="AspectFit"/>
+                                    <ImageButton Source="down.png" WidthRequest="50" Aspect="AspectFit" />
 
 
-                            </StackLayout>
+                                </StackLayout>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
