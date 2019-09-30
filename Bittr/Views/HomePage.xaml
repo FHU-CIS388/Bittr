@@ -1,57 +1,181 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="BITTR" x:Class="Bittr.Views.HomePage">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 
+<ContentPage
+    x:Class="Bittr.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="BITTR">
     <ContentPage.Content>
+
+
+
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-
-            <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="16">
-
-                <StackLayout Orientation="Vertical">
-                    <Label Margin="0, 0, 32, 0" FontFamily="{StaticResource RegularFont}" FontSize="24" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Text="What are you " />
-
-                    <Label Margin="0, 0, 32, 0" FontFamily="{StaticResource BoldFont}" FontSize="66" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Text="BITTER" />
-
-                    <Label Margin="0, 0, 32, 0" FontFamily="{StaticResource RegularFont}" FontSize="24" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Text="about today?" />
-
-                </StackLayout>
-
-                <Image Source="lemon1" WidthRequest="100" HorizontalOptions="Start" />
-
-            </StackLayout>
-
-            <ListView Grid.Row="2" ItemsSource="{Binding Complaints}" HasUnevenRows="True">
+            <ListView
+                Grid.Row="0"
+                Grid.Column="0"
+                HasUnevenRows="True"
+                ItemsSource="{Binding Complaints}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Grid.Row="2" Orientation="Vertical">
+                            <StackLayout Orientation="Vertical">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="64" />
 
-                                <Label Text="{Binding Text}" FontSize="Large" />
-                                <Label Text="{Binding Creator.Username}" FontSize="Medium" />
+                                    </Grid.RowDefinitions>
 
-                                <Label Text="{Binding Timestamp}" FontSize="Caption" />
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="64" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="64" />
+                                    </Grid.ColumnDefinitions>
 
-                                <Image Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" Aspect="AspectFit" />
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Orientation="Vertical"
+                                        Spacing="8">
+                                        <Button
+                                            Margin="0,2,0,0"
+                                            Padding="0"
+                                            BackgroundColor="Transparent"
+                                            FontFamily="BoldFont"
+                                            FontSize="Medium"
+                                            HorizontalOptions="Start"
+                                            Text="{Binding Creator.Username}"
+                                            TextColor="Black" />
+                                        <Label
+                                            Margin="0,-6,0,0"
+                                            FontFamily="NormalFont"
+                                            FontSize="Caption"
+                                            Text="{Binding TimeString}"
+                                            TextColor="Gray" />
+                                    </StackLayout>
 
-                                <ImageButton Source="up.png" WidthRequest="50" Aspect="AspectFit" />
-                                <ImageButton Source="down.png" WidthRequest="50" Aspect="AspectFit" />
+                                    <ImageButton
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Margin="2"
+                                        BackgroundColor="Transparent"
+                                        Source="{Binding Creator.Avatar}" />
 
 
+
+
+                                    <ImageButton
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        Margin="2"
+                                        BackgroundColor="Transparent"
+                                        Source="flag.png" />
+                                </Grid>
+
+                                <Label
+                                    Margin="16,8,16,4"
+                                    FontFamily="RegularFont"
+                                    FontSize="Large"
+                                    Text="{Binding Text}" />
+                                <Image
+                                    Margin="4,0,4,2"
+                                    Aspect="AspectFit"
+                                    HorizontalOptions="FillAndExpand"
+                                    Source="{Binding ImageName}" />
+                                <Label Margin="16,2,16,2" Text="{Binding Tags}" />
+
+
+
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="32" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="4*" />
+                                    </Grid.ColumnDefinitions>
+                                    <ImageButton
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Margin="2"
+                                        Aspect="Fill"
+                                        BackgroundColor="Transparent"
+                                        Source="lemonup.png" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        FontSize="Medium"
+                                        Text="{Binding UpVoteCount}"
+                                        TextColor="DarkBlue" />
+                                    <ImageButton
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        Margin="2"
+                                        Aspect="Fill"
+                                        BackgroundColor="Transparent"
+                                        Source="lemondown.png" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="3"
+                                        FontSize="Medium"
+                                        Text="{Binding DownVoteCount}"
+                                        TextColor="DarkRed" />
+                                    <ImageButton
+                                        Grid.Row="0"
+                                        Grid.Column="4"
+                                        Margin="2"
+                                        Aspect="Fill"
+                                        BackgroundColor="Transparent"
+                                        Source="favorite.png" />
+                                    <ProgressBar
+                                        Grid.Row="0"
+                                        Grid.Column="5"
+                                        HorizontalOptions="Center"
+                                        Progress="{Binding Progress}"
+                                        ProgressColor="Goldenrod"
+                                        ScaleX="3.5"
+                                        ScaleY="2" />
+                                </Grid>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-
+            <ImageButton
+                Grid.Row="0"
+                Grid.Column="0"
+                AnchorX=".97"
+                AnchorY="0.97"
+                BackgroundColor="Transparent"
+                Scale=".2"
+                Source="lemonplus.png" />
 
         </Grid>
 
+
+
+
+
+
+
+
+
+
     </ContentPage.Content>
 </ContentPage>
+
+
+

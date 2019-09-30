@@ -166,4 +166,19 @@
       <Name>Bittr</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lemondown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lemonup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\favorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lemonplus.png" />
+  </ItemGroup>
 </Project>
