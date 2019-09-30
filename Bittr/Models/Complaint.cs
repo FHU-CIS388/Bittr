@@ -9,6 +9,8 @@ namespace Bittr.Models
 
         public string ImageName { get; set; }
 
+        public int voteNumber { get; set; }
+
         public User Creator { get; set; }
         
         public Complaint()

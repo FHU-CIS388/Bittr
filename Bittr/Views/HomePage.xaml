@@ -32,8 +32,32 @@
                     <DataTemplate>
                         <ViewCell>
                             <Frame BorderColor="Black" HasShadow="True" Margin="10">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical" >
+                                        <ImageButton Source="up.png" WidthRequest="20" Aspect="AspectFit"/>
+                                        <Label Text="{Binding voteNumber}" FontSize="Medium" MinimumWidthRequest="25"/>
+                                        <ImageButton Source="down.png" WidthRequest="20" Aspect="AspectFit" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="2" Orientation="Vertical">
 
-                                <StackLayout Grid.Row="2" Orientation="Vertical">
+                                        <Label Text="{Binding Text}" FontSize="Large" />
+
+                                        <Image Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" Aspect="AspectFit" />
+                                        
+                                        <Label Text="{Binding Creator.Username}" FontSize="Medium" />
+
+                                        <Label Text="{Binding Timestamp}" FontSize="Caption" />
+
+
+
+                                    </StackLayout>
+
+                                    
+
+                                </StackLayout>
+                              
+
+                                <!--<StackLayout Grid.Row="2" Orientation="Vertical">
 
                                     <Label Text="{Binding Text}" FontSize="Large" />
                                     <Label Text="{Binding Creator.Username}" FontSize="Medium" />
@@ -46,7 +70,7 @@
                                     <ImageButton Source="down.png" WidthRequest="50" Aspect="AspectFit" />
 
 
-                                </StackLayout>
+                                </StackLayout> -->
                             </Frame>
                         </ViewCell>
                     </DataTemplate>
