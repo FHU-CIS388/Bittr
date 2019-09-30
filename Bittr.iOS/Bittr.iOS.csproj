@@ -140,6 +140,7 @@
     <BundleResource Include="Resources\Bitter-Bold.ttf" />
     <BundleResource Include="Resources\Bitter-Italic.ttf" />
     <BundleResource Include="Resources\Bitter-Regular.ttf" />
+    <BundleResource Include="Resources\return.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -26,7 +26,13 @@
 
             </StackLayout>
 
-            <ListView Grid.Row="2" ItemsSource="{Binding Complaints}" HasUnevenRows="True">
+            <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="16">
+                <Entry Text="{Binding NewComplaint.Text}" Placeholder="I'm bitter about..." HeightRequest="50" HorizontalOptions="FillAndExpand"/>
+                <ImageButton BorderColor="{StaticResource LightYellow}" BackgroundColor="{StaticResource MediumYellow}" Source="return.png"  WidthRequest="50" HeightRequest="50" Padding="10" HorizontalOptions="End" Command="{Binding AddComplaintCommand}"/>
+            </StackLayout>
+
+
+            <ListView Grid.Row="2" ItemsSource="{Binding Complaints}" HasUnevenRows="True" Margin="16,32,16,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
