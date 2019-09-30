@@ -26,7 +26,25 @@
 
             </StackLayout>
 
-            <ListView Grid.Row="2" ItemsSource="{Binding Complaints}" HasUnevenRows="True">
+            <StackLayout Orientation="Horizontal"
+                         Grid.Row="1"
+                         Padding="16">
+                <Entry Text="{Binding NewComplaint.Text}"
+                       Placeholder="Loyd is freezing cold."
+                       HorizontalOptions="FillAndExpand" />
+
+                <ImageButton WidthRequest="50"
+                             HeightRequest="50"
+                             BackgroundColor="{StaticResource MediumYellow}"
+                             BorderColor="{StaticResource DarkYellow}"
+                             Source="return.png"
+                             HorizontalOptions="End"
+                             Padding="10"
+                             Command="{Binding PostComplaintCommand}"
+                             />
+            </StackLayout>
+
+            <ListView Grid.Row="2" ItemsSource="{Binding Complaints}" HasUnevenRows="True" Margin="16">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
