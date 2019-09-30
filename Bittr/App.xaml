@@ -14,7 +14,12 @@
             <Color x:Key="LightYellow">#F2E3B6</Color>
             <Color x:Key="Black">#0D0D0D</Color>
             <Color x:Key="Gray">#8c8c8c</Color>
-            
+            <Color x:Key="SlateDark">#767D92</Color>
+            <Color x:Key="DarkGray">#121212</Color>
+
+            <Color x:Key="textGray">#212121</Color>
+
+           
             <Color x:Key="NavigationPrimary">#F2B705</Color>
 
 

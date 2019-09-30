@@ -11,7 +11,7 @@
             
             
             <!--first complaint-->
-            <Grid BackgroundColor="{StaticResource DarkYellow}">
+            <Grid BackgroundColor="{StaticResource textGray}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -19,7 +19,7 @@
 
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" BackgroundColor="{StaticResource LightYellow}" Padding="20" Margin="0,-5,0,0">
+                <Grid Grid.Row="0" BackgroundColor="{StaticResource DarkGray}" Padding="20" Margin="0,-5,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70"/>
 
@@ -39,16 +39,16 @@
                     HorizontalOptions="Center"
                     TranslationY="0"
                     Aspect="AspectFill"
-                    BorderColor="{StaticResource DarkYellow}"
+                    BorderColor="{StaticResource MediumYellow}"
                     BorderThickness="2"
                     Grid.Row="0" 
                         
                     Grid.Column="0"/>
 
-                        <Label Text="David Shannon" HorizontalOptions="Center" TextColor="{StaticResource Black}" FontSize="17" HorizontalTextAlignment="Center">
+                        <Label Text="David Shannon" HorizontalOptions="Center" TextColor="White" FontSize="17" HorizontalTextAlignment="Center">
                         </Label>
-                        <BoxView Color="Black" HeightRequest="2"></BoxView>
-                        <Label Text="10:31 AM" TextColor="{StaticResource Black}" HorizontalOptions="Center"></Label>
+                        <BoxView Color="{StaticResource MediumYellow}" HeightRequest="2"></BoxView>
+                        <Label Text="10:31 AM" TextColor="White" HorizontalOptions="Center"></Label>
                         <Label Text="REPORT"  TextColor="Red" HorizontalOptions="Center"></Label>
 
                     </StackLayout>
@@ -56,25 +56,25 @@
                     
                     
                     <!--box view to make text box for complaint-->
-                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="white" ></BoxView>
+                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="{StaticResource textGray}" ></BoxView>
                     
                     <!--complaint and tags-->
                     <StackLayout Grid.Column="1" Grid.Row="0" >
-                        <Label Grid.Column="1" Grid.Row="0" Text="It is so cold in Loyd! I hate it and I can't deal with it anymore." TextColor="{StaticResource Black}" Margin="20,5,20,5" FontSize="18"></Label>
-                        <Label Grid.Column="1" Grid.Row="0" Text="#cold #angry"  FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="20,5,20,5" FontSize="20"></Label>
+                        <Label Grid.Column="1" Grid.Row="0" Text="It is so cold in Loyd! I hate it and I can't deal with it anymore." TextColor="White" Margin="20,5,20,5" FontSize="18"></Label>
+                        <Label Grid.Column="1" Grid.Row="0" Text="#cold #angry"  FontAttributes="Bold" TextColor="White" Margin="20,5,20,5" FontSize="20"></Label>
                     </StackLayout>
                     
 
                     <!--down arrow-->
                     <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40">
                         <Image x:Name="downArrow"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
-                        <Label Text="Down" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                        <Label Text="Down" FontSize="12" HorizontalOptions="Center" TextColor="White" ></Label>
                     </StackLayout>
 
                     <!--up arrow-->
                     <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  MinimumHeightRequest="10" MinimumWidthRequest="20" WidthRequest="50">
                         <Image x:Name="upArrow"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFill" MinimumHeightRequest="20" MinimumWidthRequest="30" WidthRequest="60" HeightRequest="60"></Image>
-                        <Label Text="Up" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                        <Label Text="Up" FontSize="12" HorizontalOptions="Center" TextColor ="White" ></Label>
                     </StackLayout>
                     
                     <!--second arrow to add emphasis to upvote (optional)-->
@@ -84,7 +84,7 @@
                     <Image x:Name="lemon"  Grid.Column="1" Grid.Row="1" Source="lemon7.jpg" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
                     
                     <!--status label-->
-                    <Label Text="Status: in progress" TextColor="{StaticResource Black}"  Grid.Row="2" HorizontalOptions="Center" Grid.Column="1" ></Label>
+                    <Label Text="Status: in progress" TextColor="White"  Grid.Row="2" HorizontalOptions="Center" Grid.Column="1" ></Label>
                     
                 </Grid>
                 
@@ -94,7 +94,7 @@
                 
                 
                 <!--second complaint-->
-                <Grid Grid.Row="1" BackgroundColor="{StaticResource LightYellow}" Padding="20" Margin="0,-5,0,0">
+                <Grid Grid.Row="1" BackgroundColor="{StaticResource DarkGray}" Padding="20" Margin="0,-5,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70"/>
 
@@ -112,41 +112,41 @@
                     HorizontalOptions="Center"
                     TranslationY="0"
                     Aspect="AspectFill"
-                    BorderColor="{StaticResource DarkYellow}"
+                    BorderColor="{StaticResource MediumYellow}"
                     BorderThickness="2"
                     Grid.Row="0" 
                         
                     Grid.Column="0"/>
 
-                        <Label Text="Uncle Bob" HorizontalOptions="Center" TextColor="{StaticResource Black}" FontSize="17" HorizontalTextAlignment="Center">
+                        <Label Text="Uncle Bob" HorizontalOptions="Center" TextColor="White" FontSize="17" HorizontalTextAlignment="Center">
                         </Label>
-                        <BoxView Color="Black" HeightRequest="2"></BoxView>
-                        <Label Text="12:13 PM" TextColor="{StaticResource Black}" HorizontalOptions="Center"></Label>
+                        <BoxView Color="{StaticResource MediumYellow}" HeightRequest="2"></BoxView>
+                        <Label Text="12:13 PM" TextColor="White" HorizontalOptions="Center"></Label>
                         <Label Text="REPORT"  TextColor="Red" HorizontalOptions="Center"></Label>
 
                     </StackLayout>
-                    <BoxView Grid.Column="1" CornerRadius="10" BackgroundColor="white" ></BoxView>
+                    <BoxView Grid.Column="1" CornerRadius="10" BackgroundColor="{StaticResource textGray}" ></BoxView>
 
                     <StackLayout Grid.Column="1" Grid.Row="0" >
-                        <Label Grid.Column="1" Grid.Row="0" Text="LP is never open when I need it!" TextColor="{StaticResource Black}" Margin="20,5,20,5" FontSize="18"></Label>
-                        <Label Grid.Column="1" Grid.Row="0" Text="#hungry"  FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="20,5,20,5" FontSize="20"></Label>
+                        <Label Grid.Column="1" Grid.Row="0" Text="LP is never open when I need it!" TextColor="White" Margin="20,5,20,5" FontSize="18"></Label>
+                        <Label Grid.Column="1" Grid.Row="0" Text="#hungry"  FontAttributes="Bold" TextColor="White" Margin="20,5,20,5" FontSize="20"></Label>
                     </StackLayout>
 
                     
                     <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40">
                         <Image x:Name="downArrow1"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
-                        <Label Text="Down" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                        <Label Text="Down" FontSize="12" HorizontalOptions="Center" TextColor="White" ></Label>
                     </StackLayout>
 
                     <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  MinimumHeightRequest="10" MinimumWidthRequest="20" WidthRequest="50">
                         <Image x:Name="upArrowMid"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFill" MinimumHeightRequest="20" MinimumWidthRequest="30" WidthRequest="60" HeightRequest="60"></Image>
-                        <Label Text="Up" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                        <Label Text="Up" FontSize="12" HorizontalOptions="Center" TextColor="White" ></Label>
                     </StackLayout>
 
                     <Image x:Name="upArrow1"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"></Image>
                     <Image x:Name="comment1"  Grid.Column="1" Grid.Row="1" Source="lemon7.jpg" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
 
-                    <Label Text="Status: unopened" TextColor="{StaticResource Black}"  Grid.Row="2" HorizontalOptions="Center" Grid.Column="1" ></Label>
+                    <Label Text="Status: unopened" TextColor="White"  Grid.Row="2" HorizontalOptions="Center" Grid.Column="1" ></Label>
 
 
 
@@ -156,7 +156,7 @@
                 
                 
                 <!--third complaint-->
-                <Grid Grid.Row="2" BackgroundColor="{StaticResource LightYellow}" Padding="20" Margin="0,-5,0,0">
+                <Grid Grid.Row="2" BackgroundColor="{StaticResource DarkGray}" Padding="20" Margin="0,-5,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70"/>
 
@@ -174,42 +174,42 @@
                     HorizontalOptions="Center"
                     TranslationY="0"
                     Aspect="AspectFill"
-                    BorderColor="{StaticResource DarkYellow}"
+                    BorderColor="{StaticResource MediumYellow}"
                     BorderThickness="2"
                     Grid.Row="0" 
                         
                     Grid.Column="0"/>
 
-                        <Label Text="Linus Torvalds" HorizontalOptions="Center" TextColor="{StaticResource Black}" FontSize="17" HorizontalTextAlignment="Center">
+                        <Label Text="Linus Torvalds" HorizontalOptions="Center" TextColor="White" FontSize="17" HorizontalTextAlignment="Center">
                         </Label>
-                        <BoxView Color="Black" HeightRequest="2"></BoxView>
-                        <Label Text="1:52 PM" TextColor="{StaticResource Black}" HorizontalOptions="Center"></Label>
+                        <BoxView Color="{StaticResource MediumYellow}" HeightRequest="2"></BoxView>
+                        <Label Text="1:52 PM" TextColor="White" HorizontalOptions="Center"></Label>
                         <Label Text="REPORT"  TextColor="Red" HorizontalOptions="Center"></Label>
                     
                     </StackLayout>
-                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="White" ></BoxView>
+                    <BoxView Grid.Column="1"  CornerRadius="10" BackgroundColor="{StaticResource textGray}" ></BoxView>
 
 
                     <StackLayout Grid.Column="1" Grid.Row="0" >
-                        <Label Grid.Column="1" Grid.Row="0" Text="Windows is dumb! hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" TextColor="{StaticResource Black}" Margin="20,5,20,5" FontSize="18"></Label>
-                        <Label Grid.Column="1" Grid.Row="0" Text="#linux #dumb"  FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="20,5,20,5" FontSize="20"></Label>
+                        <Label Grid.Column="1" Grid.Row="0" Text="Windows is dumb! hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" TextColor="White" Margin="20,5,20,5" FontSize="18"></Label>
+                        <Label Grid.Column="1" Grid.Row="0" Text="#linux #dumb"  FontAttributes="Bold" TextColor="White" Margin="20,5,20,5" FontSize="20"></Label>
                     </StackLayout>
 
                      
                     <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40">
                         <Image x:Name="downArrow2"  Grid.Column="1" Grid.Row="1" Source="pleaseWork.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFit" MinimumHeightRequest="10" MinimumWidthRequest="2" WidthRequest="40"></Image>
-                        <Label Text="Down" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                        <Label Text="Down" FontSize="12" HorizontalOptions="Center" TextColor="White" ></Label>
                     </StackLayout>
 
-                    <StackLayout BackgroundColor="{StaticResource LightYellow}"  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  MinimumHeightRequest="10" MinimumWidthRequest="20" WidthRequest="50">
+                    <StackLayout  Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  MinimumHeightRequest="10" MinimumWidthRequest="20" WidthRequest="50">
                         <Image x:Name="upArrowBottom"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="AspectFill" MinimumHeightRequest="20" MinimumWidthRequest="30" WidthRequest="60" HeightRequest="60"></Image>
-                        <Label Text="Up" FontSize="12" HorizontalOptions="Center" TextColor="{StaticResource Black}" ></Label>
+                        <Label Text="Up" FontSize="12" HorizontalOptions="Center" TextColor="White" ></Label>
                     </StackLayout>
 
                     <Image x:Name="upArrow2"  Grid.Column="1" Grid.Row="1" Source="upArrow.png" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"></Image>
                     <Image x:Name="comment2"  Grid.Column="1" Grid.Row="1" Source="lemon7.jpg" VerticalOptions="CenterAndExpand" HorizontalOptions="End" WidthRequest="43"></Image>
 
-                    <Label Text="Status: Answered" TextColor="{StaticResource Black}"  Grid.Row="2" HorizontalOptions="Center" Grid.Column="1" ></Label>
+                    <Label Text="Status: Answered" TextColor="White"  Grid.Row="2" HorizontalOptions="Center" Grid.Column="1" ></Label>
 
                 </Grid>
 
