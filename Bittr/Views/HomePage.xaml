@@ -29,6 +29,20 @@
 
             </StackLayout>
 
+            <StackLayout Orientation="Horizontal"
+                         Grid.Row="1">
+                <Entry Text=""
+                       Placeholder="What are you bitter about?"
+                       HorizontalOptions="FillAndExpand" />
+                
+                <ImageButton WidthRequest="50"
+                             HeightRequest="50"
+                             BackgroundColor="{StaticResource LightYellow}"
+                             BorderColor="{StaticResource MediumYellow}"
+                             Source="add_comment.png"
+                             HorizontalOptions="End"/>
+            </StackLayout>
+
             <ListView Grid.Row="2" 
                       ItemsSource="{Binding Complaints}" 
                       HasUnevenRows="True"
@@ -47,13 +61,16 @@
                                         <Label Text="{Binding Creator.Username}"
                                                FontSize="Medium"
                                                FontAttributes="Bold"
-                                               HorizontalOptions="Start"
+                                               HorizontalOptions="StartAndExpand"
                                                />
                                         <Image Source="lemon5.png"
                                                WidthRequest="30"
                                                HorizontalOptions="End"/>
                                         <Label Text="{Binding Lemons}"
-                                               HorizontalOptions="End"/>
+                                               HorizontalOptions="End"
+                                               Margin="8,0,8,0"
+                                               VerticalTextAlignment="Center"
+                                               />
                                     </StackLayout>
                                     
                                     <BoxView Color="Gray"

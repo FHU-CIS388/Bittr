@@ -166,4 +166,7 @@
       <Name>Bittr</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\add_comment.png" />
+  </ItemGroup>
 </Project>
