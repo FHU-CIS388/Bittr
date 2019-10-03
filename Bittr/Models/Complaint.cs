@@ -6,11 +6,11 @@ namespace Bittr.Models
     public class Complaint
     {
         public int Id { get; set; }
-        public int AuthorId { get; set; }
+        public User Creator { get; set; }
         public DateTime Timestamp { get; set; }
         public string Title { get; set; }
-        public string ImageURL { get; set; }
-        public string Description { get; set; }
+        public string ImageName { get; set; }
+        public string Text { get; set; }
         public double Progress { get; set; }
         public List<Interaction> Upvotes { get; set; }
         public List<Interaction> Downvotes { get; set; }

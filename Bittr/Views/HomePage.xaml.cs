@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Bittr.Models;
-
+using Bittr.ViewModels;
 using Xamarin.Forms;
 
 namespace Bittr.Views

@@ -133,6 +133,14 @@
     <BundleResource Include="Resources\lemon3.png" />
     <BundleResource Include="Resources\lemon2.png" />
     <BundleResource Include="Resources\lemon1.png" />
+    <BundleResource Include="Resources\up_filled.png" />
+    <BundleResource Include="Resources\up.png" />
+    <BundleResource Include="Resources\down_filled.png" />
+    <BundleResource Include="Resources\down.png" />
+    <BundleResource Include="Resources\Bitter-Bold.ttf" />
+    <BundleResource Include="Resources\Bitter-Italic.ttf" />
+    <BundleResource Include="Resources\Bitter-Regular.ttf" />
+    <BundleResource Include="Resources\return.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
