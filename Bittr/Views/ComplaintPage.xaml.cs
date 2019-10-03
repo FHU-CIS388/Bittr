@@ -14,9 +14,9 @@ namespace Bittr.Views
 
             Title = complaint.Title;
 
-            ImageURL.Source = complaint.ImageURL;
+            ImageName.Source = complaint.ImageName;
             Timestamp.Text = complaint.Timestamp.ToString();
-            Description.Text = complaint.Description;
+            Description.Text = complaint.Text;
             Upvotes.Text = "👍 " + complaint.Upvotes.Count;
             Downvotes.Text = "👎 " + complaint.Downvotes.Count;
         }

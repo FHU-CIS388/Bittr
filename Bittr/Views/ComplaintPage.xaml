@@ -4,7 +4,7 @@
              x:Class="Bittr.Views.ComplaintPage">
     <ContentPage.Content>
         <StackLayout>
-            <Image x:Name="ImageURL"
+            <Image x:Name="ImageName"
                     Aspect="AspectFill"
                     HorizontalOptions="FillAndExpand"
                     HeightRequest="200"/>

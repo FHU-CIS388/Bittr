@@ -1,25 +1,20 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="BITTR"
-             xmlns:controls="clr-namespace:Bittr.Controls;assembly=Bittr"
-             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="Bittr.Views.HomePage">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Bittr.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="BITTR">
+
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
 
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-                    <StackLayout Grid.Row="0"
-                                 Orientation="Horizontal"
-                                 HorizontalOptions="FillAndExpand"
-                                 Padding="16">
 
             <StackLayout
                 Grid.Row="0"
@@ -52,60 +47,6 @@
                         Text="about today?"
                         HorizontalOptions="FillAndExpand" />
 
-                <StackLayout>
-                    <ListView x:Name="ComplaintFeed"
-                              HasUnevenRows="True"
-                              SeparatorVisibility="None"
-                              ItemSelected="Handle_ComplaintSelected">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <yummy:PancakeView BackgroundColor="White"
-                                           CornerRadius="2"
-                                           HasShadow="True"
-                                           Margin="10,10,10,10">
-                                        <StackLayout Padding="10,10,10,10">
-                                            <Image Source="{Binding ImageURL}"
-                                                   Aspect="AspectFill"
-                                                   HorizontalOptions="FillAndExpand"
-                                                   HeightRequest="150"
-                                                   Margin="-20,-20,-20,0"/>
-                                            <Label Text="{Binding Title}"
-                                                   FontSize="{StaticResource TitleFontSize}"
-                                                   FontFamily="{StaticResource LightFontFamily}"/>
-                                            <Label Text="{Binding Description}"
-                                                   FontSize="Body"
-                                                   FontFamily="{StaticResource RegularFontFamily}"/>
-                                            <Grid>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="Auto" />
-                                                </Grid.RowDefinitions>
-                                                <StackLayout Grid.Row="0"
-                                                             Grid.Column="0">
-                                                             <Label Text="👍"
-                                                                    HorizontalTextAlignment="Center"/>
-                                                             <Label Text="{Binding Upvotes.Count}"
-                                                                    HorizontalTextAlignment="Center"/>
-                                                </StackLayout>
-                                                <StackLayout Grid.Row="0"
-                                                             Grid.Column="2">
-                                                             <Label Text="👎"
-                                                                    HorizontalTextAlignment="Center"/>
-                                                             <Label Text="{Binding Downvotes.Count}"
-                                                                    HorizontalTextAlignment="Center"/>
-                                                </StackLayout>
-                                            </Grid>
-                                            <ProgressBar Progress="{Binding Progress}"
-                                                         Margin="-10,10,-10,-10"
-                                                         ProgressColor="Green"
-                                                         ScaleY="4"
-                                                         WidthRequest="100"/>
-                                        </StackLayout>
-                                    </yummy:PancakeView>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
                 </StackLayout>
 
                 <Image
@@ -135,43 +76,60 @@
                     HorizontalOptions="End" />
             </StackLayout>
 
-            <ListView
-                Grid.Row="2"
-                Margin="16"
-                HasUnevenRows="True"
-                ItemsSource="{Binding Complaints}">
+            <ListView x:Name="ComplaintFeed"
+                        HasUnevenRows="True"
+                        SeparatorVisibility="None"
+                        ItemSelected="Handle_ComplaintSelected"
+                        ItemsSource="{Binding Complaints}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Grid.Row="2" Orientation="Vertical">
-
-                                <Label FontSize="Large" Text="{Binding Text}" />
-                                <Label FontSize="Medium" Text="{Binding Creator.Username}" />
-
-                                <Label FontSize="Caption" Text="{Binding Timestamp}" />
-
-                                <Image
-                                    Aspect="AspectFit"
-                                    Source="{Binding ImageName}"
-                                    HorizontalOptions="FillAndExpand" />
-
-                                <ImageButton
-                                    WidthRequest="50"
-                                    Aspect="AspectFit"
-                                    Source="up.png" />
-                                <ImageButton
-                                    WidthRequest="50"
-                                    Aspect="AspectFit"
-                                    Source="down.png" />
-
-
-                            </StackLayout>
+                            <yummy:PancakeView BackgroundColor="White"
+                                    CornerRadius="2"
+                                    HasShadow="True"
+                                    Margin="10,10,10,10">
+                                <StackLayout Padding="10,10,10,10">
+                                    <Image Source="{Binding ImageName}"
+                                            Aspect="AspectFill"
+                                            HorizontalOptions="FillAndExpand"
+                                            HeightRequest="150"
+                                            Margin="-20,-20,-20,0"/>
+                                    <Label Text="{Binding Title}"
+                                            FontSize="{StaticResource TitleFontSize}"
+                                            FontFamily="{StaticResource LightFontFamily}"/>
+                                    <Label Text="{Binding Text}"
+                                            FontSize="Body"
+                                            FontFamily="{StaticResource RegularFontFamily}"/>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="0"
+                                                        Grid.Column="0">
+                                                        <Label Text="👍"
+                                                            HorizontalTextAlignment="Center"/>
+                                                        <Label Text="{Binding Upvotes.Count}"
+                                                            HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="0"
+                                                        Grid.Column="2">
+                                                        <Label Text="👎"
+                                                            HorizontalTextAlignment="Center"/>
+                                                        <Label Text="{Binding Downvotes.Count}"
+                                                            HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                    </Grid>
+                                    <ProgressBar Progress="{Binding Progress}"
+                                                    Margin="-10,10,-10,-10"
+                                                    ProgressColor="Green"
+                                                    ScaleY="4"
+                                                    WidthRequest="100"/>
+                                </StackLayout>
+                            </yummy:PancakeView>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-
 
         </Grid>
 
