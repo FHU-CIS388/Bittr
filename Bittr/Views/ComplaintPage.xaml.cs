@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 using Bittr.Models;
 
 namespace Bittr.Views
@@ -19,6 +16,11 @@ namespace Bittr.Views
             Description.Text = complaint.Text;
             Upvotes.Text = "👍 " + complaint.Upvotes.Count;
             Downvotes.Text = "👎 " + complaint.Downvotes.Count;
+        }
+
+        void Report(object sender, System.EventArgs e)
+        {
+            Navigation.PushModalAsync(new ReportPage());
         }
     }
 }

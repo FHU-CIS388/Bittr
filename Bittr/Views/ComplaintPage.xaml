@@ -14,6 +14,8 @@
                 <Label x:Name="Upvotes"/>
                 <Label x:Name="Downvotes"/>
             </StackLayout>
+            <Button Text="Report?"
+                    Clicked="Report"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
