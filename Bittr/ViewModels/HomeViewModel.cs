@@ -43,7 +43,7 @@ namespace Bittr.ViewModels
                         new Interaction
                         {
                             Type = InteractionType.UPVOTE,
-                            UserId = 0
+                            UserId = 5
                         },
                         new Interaction
                         {
@@ -56,6 +56,19 @@ namespace Bittr.ViewModels
                             UserId = 2
                         }
 
+                    },
+                    Favorites = new List<Interaction>
+                    {
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 1
+                        },
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 2
+                        }
                     },
                     Downvotes= new List<Interaction>
                     {
@@ -83,7 +96,7 @@ namespace Bittr.ViewModels
                         new Interaction
                         {
                             Type = InteractionType.UPVOTE,
-                            UserId = 0
+                            UserId = 5
                         },
                         new Interaction
                         {
@@ -96,6 +109,19 @@ namespace Bittr.ViewModels
                             UserId = 2
                         }
 
+                    },
+                    Favorites = new List<Interaction>
+                    {
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 1
+                        },
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 2
+                        }
                     },
                     Downvotes= new List<Interaction>
                     {
@@ -123,7 +149,7 @@ namespace Bittr.ViewModels
                         new Interaction
                         {
                             Type = InteractionType.UPVOTE,
-                            UserId = 0
+                            UserId = 5
                         },
                         new Interaction
                         {
@@ -136,6 +162,19 @@ namespace Bittr.ViewModels
                             UserId = 2
                         }
 
+                    },
+                    Favorites = new List<Interaction>
+                    {
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 1
+                        },
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 2
+                        }
                     },
                     Downvotes= new List<Interaction>
                     {
@@ -163,7 +202,7 @@ namespace Bittr.ViewModels
                         new Interaction
                         {
                             Type = InteractionType.UPVOTE,
-                            UserId = 0
+                            UserId = 5
                         },
                         new Interaction
                         {
@@ -176,6 +215,19 @@ namespace Bittr.ViewModels
                             UserId = 2
                         }
 
+                    },
+                    Favorites = new List<Interaction>
+                    {
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 1
+                        },
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 2
+                        }
                     },
                     Downvotes= new List<Interaction>
                     {
@@ -203,7 +255,7 @@ namespace Bittr.ViewModels
                         new Interaction
                         {
                             Type = InteractionType.UPVOTE,
-                            UserId = 0
+                            UserId = 5
                         },
                         new Interaction
                         {
@@ -216,6 +268,19 @@ namespace Bittr.ViewModels
                             UserId = 2
                         }
 
+                    },
+                    Favorites = new List<Interaction>
+                    {
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 1
+                        },
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 2
+                        }
                     },
                     Downvotes= new List<Interaction>
                     {
@@ -243,7 +308,7 @@ namespace Bittr.ViewModels
                         new Interaction
                         {
                             Type = InteractionType.UPVOTE,
-                            UserId = 0
+                            UserId = 5
                         },
                         new Interaction
                         {
@@ -256,6 +321,19 @@ namespace Bittr.ViewModels
                             UserId = 2
                         }
 
+                    },
+                    Favorites = new List<Interaction>
+                    {
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 1
+                        },
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 2
+                        }
                     },
                     Downvotes= new List<Interaction>
                     {
@@ -283,7 +361,7 @@ namespace Bittr.ViewModels
                         new Interaction
                         {
                             Type = InteractionType.UPVOTE,
-                            UserId = 0
+                            UserId = 5
                         },
                         new Interaction
                         {
@@ -296,6 +374,19 @@ namespace Bittr.ViewModels
                             UserId = 2
                         }
 
+                    },
+                    Favorites = new List<Interaction>
+                    {
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 1
+                        },
+                        new Interaction
+                        {
+                            Type = InteractionType.FAVORITE,
+                            UserId = 2
+                        }
                     },
                     Downvotes= new List<Interaction>
                     {
@@ -323,14 +414,26 @@ namespace Bittr.ViewModels
 
         private void PostComplaint()
         {
+            Random rnd = new Random();
+            var cId = rnd.Next(); // quick hax. later increment in DB
+
+            NewComplaint.Id = cId;
             NewComplaint.Creator = User;
             NewComplaint.Timestamp = DateTime.Now;
+            NewComplaint.Title = "Title";
+            NewComplaint.ImageName = "empty.jpg";
+            NewComplaint.Progress = 0;
+            NewComplaint.Upvotes = new List<Interaction>();
+            NewComplaint.Downvotes = new List<Interaction>();
+            NewComplaint.Favorites = new List<Interaction>();
+            NewComplaint.Reports = new List<Interaction>();
+            NewComplaint.Tags = new List<Tag>();
+            NewComplaint.Flagged = false;
 
             //Complaints.Add(NewComplaint);
             Complaints.Insert(0, NewComplaint);
 
             NewComplaint = new Complaint();
-
         }
     }
 }
