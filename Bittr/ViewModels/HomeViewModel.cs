@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Input;
 using Bittr.Models;
 using Xamarin.Forms;
@@ -417,6 +419,22 @@ namespace Bittr.ViewModels
             Random rnd = new Random();
             var cId = rnd.Next(); // quick hax. later increment in DB
 
+            const string Pattern = @"(?<=#)\w+";
+            //const string Symbol = "#";
+            MatchCollection tags = Regex.Matches(NewComplaint.Text, Pattern, RegexOptions.Singleline);
+            List<Tag> tagsList = new List<Tag>();
+
+            foreach (Match match in tags) // TODO: Make this cleaner using Linq
+            {
+                Tag t = new Tag
+                {
+                    Title = match.Value
+                };
+                tagsList.Add(t);
+            }
+
+            //var tagsList = tags.Cast<Match>().Select(match => match.Value).ToList();
+
             NewComplaint.Id = cId;
             NewComplaint.Creator = User;
             NewComplaint.Timestamp = DateTime.Now;
@@ -427,7 +445,7 @@ namespace Bittr.ViewModels
             NewComplaint.Downvotes = new List<Interaction>();
             NewComplaint.Favorites = new List<Interaction>();
             NewComplaint.Reports = new List<Interaction>();
-            NewComplaint.Tags = new List<Tag>();
+            NewComplaint.Tags = tagsList;
             NewComplaint.Flagged = false;
 
             //Complaints.Add(NewComplaint);
