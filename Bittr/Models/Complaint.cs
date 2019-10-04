@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Windows.Input;
 
 namespace Bittr.Models
 {
@@ -18,6 +20,5 @@ namespace Bittr.Models
         public List<Interaction> Reports { get; set; }
         public List<Tag> Tags { get; set; }
         public bool Flagged { get; set; }
-
     }
 }

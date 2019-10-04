@@ -79,7 +79,6 @@
             <ListView x:Name="ComplaintFeed"
                         HasUnevenRows="True"
                         SeparatorVisibility="None"
-                        ItemSelected="Handle_ComplaintSelected"
                         ItemsSource="{Binding Complaints}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -93,7 +92,11 @@
                                             Aspect="AspectFill"
                                             HorizontalOptions="FillAndExpand"
                                             HeightRequest="150"
-                                            Margin="-20,-20,-20,0"/>
+                                            Margin="-20,-20,-20,0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="ComplaintTapped" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
                                     <Label Text="{Binding Title}"
                                             FontSize="{StaticResource TitleFontSize}"
                                             FontFamily="{StaticResource LightFontFamily}"/>
@@ -107,15 +110,25 @@
                                         <StackLayout Grid.Row="0"
                                                         Grid.Column="0">
                                                         <Label Text="👍"
-                                                            HorizontalTextAlignment="Center"/>
-                                                        <Label Text="{Binding Upvotes.Count}"
+                                                            HorizontalTextAlignment="Center">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="Upvote" />
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                        <Label x:Name="UpvoteCount"
+                                                            Text="{Binding Upvotes.Count}"
                                                             HorizontalTextAlignment="Center"/>
                                         </StackLayout>
                                         <StackLayout Grid.Row="0"
                                                         Grid.Column="2">
                                                         <Label Text="👎"
-                                                            HorizontalTextAlignment="Center"/>
-                                                        <Label Text="{Binding Downvotes.Count}"
+                                                            HorizontalTextAlignment="Center">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="Downvote" />
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                        <Label x:Name="DownvoteCount"
+                                                            Text="{Binding Downvotes.Count}"
                                                             HorizontalTextAlignment="Center"/>
                                         </StackLayout>
                                     </Grid>
