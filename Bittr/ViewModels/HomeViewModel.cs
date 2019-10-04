@@ -29,6 +29,8 @@ namespace Bittr.ViewModels
 
         public ICommand PostComplaintCommand { get; set; }
 
+        public ICommand HashtagCommand { get; set; }
+
         public HomeViewModel()
         {
             User = new User() { Username="IdontHAVEone", FirstName="Lexi", LastName="Hudgins"};
@@ -410,7 +412,7 @@ namespace Bittr.ViewModels
             NewComplaint = new Complaint();
 
             PostComplaintCommand = new Command(PostComplaint);
-
+            HashtagCommand = new Command<string>(CreateHashtag);
         }
 
 
@@ -433,8 +435,6 @@ namespace Bittr.ViewModels
                 tagsList.Add(t);
             }
 
-            //var tagsList = tags.Cast<Match>().Select(match => match.Value).ToList();
-
             NewComplaint.Id = cId;
             NewComplaint.Creator = User;
             NewComplaint.Timestamp = DateTime.Now;
@@ -452,6 +452,11 @@ namespace Bittr.ViewModels
             Complaints.Insert(0, NewComplaint);
 
             NewComplaint = new Complaint();
+        }
+
+        async void CreateHashtag(string tag)
+        {
+            //await UserDialogs.Instance.AlertAsync("Hashtag tapped", tag, "Ok");
         }
     }
 }

@@ -3,11 +3,14 @@ using Bittr.Models;
 using Xamarin.Forms;
 using System.Linq;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace Bittr.Views
 {
     public partial class HomePage : ContentPage
     {
+        public ICommand HashtagCommand { get; set; }
+
         public HomePage()
         {
             InitializeComponent();

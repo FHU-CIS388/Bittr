@@ -3,6 +3,7 @@
     x:Class="Bittr.Views.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Bittr.Behaviors"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     Title="BITTR">
 
@@ -103,9 +104,13 @@
                                     <Label Text="{Binding Title}"
                                             FontSize="{StaticResource TitleFontSize}"
                                             FontFamily="{StaticResource LightFontFamily}"/>
-                                    <Label Text="{Binding Text}"
+                                    <Label FormattedText="{Binding Text}"
                                             FontSize="Body"
-                                            FontFamily="{StaticResource RegularFontFamily}"/>
+                                            FontFamily="{StaticResource RegularFontFamily}">
+                                        <Label.Behaviors>
+                                            <behaviors:HashtagBehavior Command="{Binding HashtagCommand}" HashtagColor="Blue" />
+                                        </Label.Behaviors>
+                                    </Label>
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto" />
