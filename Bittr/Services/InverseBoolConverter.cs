@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Bittr.Services
 {
@@ -13,5 +14,7 @@ namespace Bittr.Services
         {
             return !(bool)value;
         }
+
+        
     }
 }
