@@ -141,6 +141,7 @@
     <BundleResource Include="Resources\Bitter-Italic.ttf" />
     <BundleResource Include="Resources\Bitter-Regular.ttf" />
     <BundleResource Include="Resources\post.png" />
+    <BundleResource Include="Resources\dshannon.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

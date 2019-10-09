@@ -20,5 +20,13 @@ namespace Bittr.Views
         {
             Console.WriteLine("You upvoted this complaint.");
         }
+
+
+        public async void OnReportButtonClicked(object sender, EventArgs args)
+        {
+            var reportPage = new ReportPage();
+
+            await Navigation.PushModalAsync( new NavigationPage( reportPage) );
+        }
     }
 }
