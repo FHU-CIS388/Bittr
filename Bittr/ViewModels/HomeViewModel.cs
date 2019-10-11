@@ -38,12 +38,82 @@ namespace Bittr.ViewModels
             {
                 return new Command((c) =>
                 {
+                    
                     var complaint = c as Complaint;
+                    if(complaint.HasUpvoted || complaint.HasDownvoted)
+                    {
+                        return;
+                    }
                     complaint.Upvotes++;
                     complaint.HasUpvoted = true;
                 });
             }
         }
+
+        public ICommand DownvoteCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var complaint = c as Complaint;
+                    if (complaint.HasUpvoted || complaint.HasDownvoted)
+                    {
+                        return;
+                    }
+                    complaint.Downvotes++;
+                    complaint.HasDownvoted = true;
+                });
+            }
+        }
+
+        public ICommand UnUpVoteCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var complaint = c as Complaint;
+                    complaint.Upvotes--;
+                    
+                });
+            }
+        }
+
+        public ICommand UnDownVoteCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var complaint = c as Complaint;
+                    complaint.Downvotes--;
+
+                });
+            }
+        }
+
+        public ICommand FavoriteCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var complaint = c as Complaint;
+                    if (complaint.IsFavorite)
+                    {
+                        complaint.IsFavorite = false;
+                    }
+                    else
+                    {
+                        complaint.IsFavorite = true;
+                    }
+
+                });
+            }
+        }
+
+
 
 
         public HomeViewModel()

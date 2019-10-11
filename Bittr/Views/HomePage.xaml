@@ -151,6 +151,9 @@
                                         WidthRequest="40"
                                         Aspect="AspectFit"
                                         Source="down.png"
+                                         Command="{Binding Path=BindingContext.DownvoteCommand, Source={x:Reference ComplaintListView}}"
+                                        CommandParameter="{Binding .}"
+                                        IsVisible="{Binding HasDownvoted, Converter={services:InverseBoolConverter}}"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Start" />
                                     <Label
@@ -242,6 +245,10 @@
                                         x:Name="lemon"
                                         WidthRequest="43"
                                         Source="lemon7.jpg"
+                                        Command="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ComplaintListView}}"
+                                        CommandParameter="{Binding .}"
+                                         IsVisible="{Binding IsFavorite}"
+                                        
                                         HorizontalOptions="End"
                                         VerticalOptions="CenterAndExpand" />
 
