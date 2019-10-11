@@ -22,6 +22,20 @@ namespace Bittr.Models
             get { return upvotes; }
             set { SetProperty(ref upvotes, value); }
         }
+
+        private string upvoteImageName = "up.png";
+        public string UpvoteImageName
+        {
+            get
+            {
+                return upvoteImageName;
+            }
+            set
+            {
+                SetProperty(ref upvoteImageName, value);
+            }
+        }
+
         public int Downvotes { get; set; }
 
         private bool hasUpvoted = false;

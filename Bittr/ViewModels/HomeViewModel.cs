@@ -75,6 +75,8 @@ namespace Bittr.ViewModels
             //Complaints.Add(NewComplaint);
             Complaints.Insert(0, NewComplaint);
 
+            complaintsDataStore.AddItemAsync(newComplaint);
+
             NewComplaint = new Complaint();
 
         }

@@ -83,6 +83,7 @@
                 Grid.Row="2"
                 HasUnevenRows="True"
                 ios:ListView.SeparatorStyle="FullWidth"
+                CachingStrategy="RecycleElement"
                 ItemsSource="{Binding Complaints}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -117,10 +118,11 @@
                                         WidthRequest="60"
                                         HeightRequest="60"
                                         Aspect="AspectFit"
+                                        BackgroundColor="Transparent"
                                         Command="{Binding Path=BindingContext.UpvoteCommand, Source={x:Reference ComplaintListView}}"
                                         CommandParameter="{Binding .}"
                                         IsVisible="{Binding HasUpvoted, Converter={services:InverseBoolConverter}}"
-                                        Source="up.png"
+                                        Source="{Binding UpvoteImageName}"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Start" />
 
@@ -130,6 +132,7 @@
                                         WidthRequest="60"
                                         HeightRequest="60"
                                         Aspect="AspectFit"
+                                        BackgroundColor="Transparent"
                                         Command="{Binding Path=BindingContext.UpvoteCommand, Source={x:Reference ComplaintListView}}"
                                         CommandParameter="{Binding .}"
                                         IsVisible="{Binding HasUpvoted}"
@@ -199,7 +202,7 @@
 
                                         <Button
                                             Grid.Column="1"
-                                            Padding="5"
+                                            Padding="0"
                                             WidthRequest="20"
                                             HeightRequest="20"
                                             VerticalOptions="Start"
@@ -224,14 +227,16 @@
                                             <DataTemplate>
                                                 <Button
                                                     Margin="5,5"
-                                                    Padding="10"
+                                                    Padding="0"
                                                     HeightRequest="30"
-                                                    BackgroundColor="{StaticResource LightYellow}"
+                                                    BackgroundColor="Transparent"
+                                                    BorderColor="{StaticResource MediumYellow}"
+                                                    BorderWidth="1"
                                                     CornerRadius="14"
                                                     FontFamily="{StaticResource RegularFont}"
                                                     FontSize="Body"
                                                     Text="{Binding Text}"
-                                                    TextColor="Black" />
+                                                    TextColor="{StaticResource TextGray}" />
 
                                             </DataTemplate>
                                         </BindableLayout.ItemTemplate>
