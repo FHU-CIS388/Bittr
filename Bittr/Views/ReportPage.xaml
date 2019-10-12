@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Bittr.Views.ReportPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bittr.Views.ReportPage"
+             Title="Report">
     <ContentPage.Content>
+        <StackLayout Margin="16,16,16,16">
+            <Label Text="Report Complaint"
+                   FontSize="Title"
+                   TextColor="Red"/>
+            <Label Text="Provide a brief description."/>
+            <Frame CornerRadius="4"
+                   VerticalOptions="FillAndExpand"
+                   Margin="0,0,0,40">
+                <Editor Margin="-16,-20,-16,20"
+                        Completed="CloseModal"
+                        VerticalOptions="FillAndExpand"/>
+            </Frame>
+            <Button Text="Cancel"
+                    Margin="0,20,0,0"
+                    Clicked="CloseModal"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

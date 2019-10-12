@@ -11,5 +11,10 @@ namespace Bittr.Views
         {
             InitializeComponent();
         }
+
+        void CloseModal(object sender, System.EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
     }
 }

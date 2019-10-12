@@ -20,7 +20,7 @@ namespace Bittr.Views
 
         void Report(object sender, System.EventArgs e)
         {
-            Navigation.PushModalAsync(new ReportPage());
+            Navigation.PushModalAsync(new NavigationPage(new ReportPage()));
         }
     }
 }
