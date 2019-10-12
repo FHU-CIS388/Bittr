@@ -40,12 +40,16 @@ namespace Bittr.ViewModels
                 {
                     
                     var complaint = c as Complaint;
-                    if(complaint.HasUpvoted || complaint.HasDownvoted)
+                    if (complaint.HasUpvoted)
                     {
-                        return;
+                        complaint.Upvotes--;
+                        complaint.HasUpvoted = false;
                     }
-                    complaint.Upvotes++;
-                    complaint.HasUpvoted = true;
+                    else
+                    {
+                        complaint.Upvotes++;
+                        complaint.HasUpvoted = true;
+                    }
                 });
             }
         }
@@ -57,12 +61,17 @@ namespace Bittr.ViewModels
                 return new Command((c) =>
                 {
                     var complaint = c as Complaint;
-                    if (complaint.HasUpvoted || complaint.HasDownvoted)
+                    if (complaint.HasDownvoted)
                     {
-                        return;
+                        complaint.Downvotes--;
+                        complaint.HasDownvoted = false;
                     }
-                    complaint.Downvotes++;
-                    complaint.HasDownvoted = true;
+                    else
+                    {
+
+                        complaint.Downvotes++;
+                        complaint.HasDownvoted = true;
+                    }
                 });
             }
         }

@@ -17,21 +17,46 @@ namespace Bittr.Models
         public User Creator { get; set; }
 
         private int upvotes = 0;
+        private int downvotes = 0;
         public int Upvotes
         {
             get { return upvotes; }
-            set { SetProperty(ref upvotes, value); }
+            set { SetProperty(ref upvotes, value);
+                OnPropertyChanged("NetVotes");
+            }
         }
-        public int Downvotes { get; set; }
+        public int Downvotes {
+            get { return downvotes; }
+            set { SetProperty(ref downvotes, value);
+                OnPropertyChanged("NetVotes");
+            }
+        }
 
         private bool hasUpvoted = false;
+       
         public bool HasUpvoted
         {
             get { return hasUpvoted; }
             set { SetProperty(ref hasUpvoted, value); }
         }
 
-        public bool HasDownvoted { get; set; }
+
+        private bool hasDownvoted = false;
+        public bool HasDownvoted {
+            get { return hasDownvoted; }
+            set { 
+                SetProperty(ref hasDownvoted, value);
+                
+            }
+        }
+
+        public int NetVotes
+        {
+            get
+            {
+                return Upvotes - Downvotes;
+            }
+        }
 
         public bool IsFavorite { get; set; }
 

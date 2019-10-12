@@ -24,38 +24,9 @@
                 Orientation="Horizontal"
                 HorizontalOptions="StartAndExpand">
 
-                <StackLayout Orientation="Vertical">
-                    <Label
-                        Margin="0,0,32,0"
-                        FontFamily="{StaticResource RegularFont}"
-                        FontSize="24"
-                        HorizontalTextAlignment="End"
-                        Text="What are you "
-                        HorizontalOptions="FillAndExpand" />
+               
 
-                    <Label
-                        Margin="0,0,32,0"
-                        FontFamily="{StaticResource BoldFont}"
-                        FontSize="66"
-                        HorizontalTextAlignment="End"
-                        Text="BITTER"
-                        HorizontalOptions="FillAndExpand" />
-
-                    <Label
-                        Margin="0,0,32,0"
-                        FontFamily="{StaticResource RegularFont}"
-                        FontSize="24"
-                        HorizontalTextAlignment="End"
-                        Text="about today?"
-                        HorizontalOptions="FillAndExpand" />
-
-                </StackLayout>
-
-                <Image
-                    WidthRequest="100"
-                    Source="lemon1"
-                    HorizontalOptions="Start" />
-
+               
             </StackLayout>
 
             <StackLayout
@@ -83,6 +54,7 @@
                 Grid.Row="2"
                 HasUnevenRows="True"
                 ios:ListView.SeparatorStyle="FullWidth"
+                CachingStrategy="RecycleElement"
                 ItemsSource="{Binding Complaints}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -113,16 +85,18 @@
                                     <!--  up vote  -->
                                     <ImageButton
                                         x:Name="upArrowVoted"
-                                        Padding="10"
-                                        WidthRequest="60"
-                                        HeightRequest="60"
+                                        Padding="0"
+                                        WidthRequest="50"
+                                        HeightRequest="50"
                                         Aspect="AspectFit"
                                         Command="{Binding Path=BindingContext.UpvoteCommand, Source={x:Reference ComplaintListView}}"
                                         CommandParameter="{Binding .}"
                                         IsVisible="{Binding HasUpvoted, Converter={services:InverseBoolConverter}}"
                                         Source="up.png"
                                         HorizontalOptions="Center"
-                                        VerticalOptions="Start" />
+                                        VerticalOptions="Start" 
+                                        BackgroundColor="Transparent"
+                                        />
 
                                     <ImageButton
                                         x:Name="upArrowNotVoted"
@@ -135,11 +109,13 @@
                                         IsVisible="{Binding HasUpvoted}"
                                         Source="up.png"
                                         HorizontalOptions="Center"
-                                        VerticalOptions="Start" />
+                                        VerticalOptions="Start"
+                                        BackgroundColor="Transparent"
+                                        />
 
                                     <Label
                                         FontSize="14"
-                                        Text="{Binding Upvotes}"
+                                        Text="{Binding NetVotes}"
                                         TextColor="Black"
                                         HorizontalOptions="Center" />
 
@@ -151,11 +127,13 @@
                                         WidthRequest="40"
                                         Aspect="AspectFit"
                                         Source="down.png"
-                                         Command="{Binding Path=BindingContext.DownvoteCommand, Source={x:Reference ComplaintListView}}"
+                                        Command="{Binding Path=BindingContext.DownvoteCommand, Source={x:Reference ComplaintListView}}"
                                         CommandParameter="{Binding .}"
-                                        IsVisible="{Binding HasDownvoted, Converter={services:InverseBoolConverter}}"
+                                        
                                         HorizontalOptions="Center"
-                                        VerticalOptions="Start" />
+                                        VerticalOptions="Start" 
+                                       BackgroundColor="Transparent"
+                                        />
                                     <Label
                                         FontSize="14"
                                         Text="{Binding Downvotes}"
@@ -175,7 +153,9 @@
                                             Text="{Binding Creator.Username}"
                                             TextColor="Black"
                                             VerticalTextAlignment="End"
-                                            HorizontalOptions="StartAndExpand" />
+                                            HorizontalOptions="StartAndExpand"
+                                            
+                                            />
                                         <Label
                                             FontFamily="{StaticResource RegularFont}"
                                             Text="{Binding Timestamp}"
