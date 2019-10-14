@@ -3,6 +3,8 @@
     x:Class="Bittr.Views.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:services="clr-namespace:Bittr.Services"
     Title="BITTR">
 
     <ContentPage.Content>
@@ -55,9 +57,33 @@
 
                 </StackLayout>
 
+
+                <StackLayout
+                    Grid.Row="1"
+                    Padding="16"
+                    Orientation="Horizontal">
+                    <Entry
+                        HorizontalOptions="FillAndExpand"
+                        Placeholder="Loyd is freezing cold."
+                        Text="{Binding NewComplaint.Text}" />
+                    <ImageButton
+                        Padding="10"
+                        BackgroundColor="{StaticResource MediumYellow}"
+                        BorderColor="{StaticResource DarkYellow}"
+                        Command="{Binding PostComplaintCommand}"
+                        HeightRequest="50"
+                        HorizontalOptions="End"
+                        Source="up.png"
+                        WidthRequest="50" />
+                </StackLayout>
+
+
                 <ListView
+                    x:Name="ComplaintListView"
                     Grid.Row="2"
                     Margin="20,10,20,10"
+                    ios:ListView.SeparatorStyle="FullWidth"
+                    CachingStrategy="RecycleElement"
                     HasUnevenRows="True"
                     ItemsSource="{Binding Complaints}">
                     <ListView.ItemTemplate>
@@ -75,6 +101,7 @@
                                         <ImageButton
                                             Margin="0,-38,-8,0"
                                             BackgroundColor="Transparent"
+                                            Clicked="OnReportButtonClicked"
                                             HeightRequest="30"
                                             HorizontalOptions="End"
                                             Source="report.png"
@@ -100,39 +127,133 @@
                                             FontSize="Caption"
                                             Text="{Binding TimeStamp}" />
 
+                                        <FlexLayout
+                                            AlignContent="Start"
+                                            AlignItems="Center"
+                                            BindableLayout.ItemsSource="{Binding Tags}"
+                                            Direction="Row"
+                                            JustifyContent="Start"
+                                            Wrap="Wrap">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button
+                                                        Margin="5,5"
+                                                        Padding="0"
+                                                        BackgroundColor="{StaticResource LightYellow}"
+                                                        CornerRadius="14"
+                                                        FontFamily="{StaticResource RegularFont}"
+                                                        FontSize="Small"
+                                                        HeightRequest="20"
+                                                        Text="{Binding Text}"
+                                                        TextColor="Black" />
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </FlexLayout>
 
+                                        <ProgressBar
+                                            Margin="0,7,0,-10"
+                                            Progress="0.5"
+                                            ProgressColor="Green"
+                                            WidthRequest="130" />
 
-                                        <ProgressBar 
-                                            Progress="0.5" 
-                                            ProgressColor="Green" 
-                                            WidthRequest="130"
-                                            Margin="0,7,0,-10"/>
+                                        <StackLayout Padding="0,0,0,-20">
+                                            <ImageButton
+                                                x:Name="DownNotVoted"
+                                                Margin="0,5,0,-10"
+                                                BackgroundColor="Transparent"
+                                                Command="{Binding Path=BindingContext.DownvoteCommand, Source={x:Reference ComplaintListView}}"
+                                                CommandParameter="{Binding .}"
+                                                HeightRequest="40"
+                                                HorizontalOptions="Start"
+                                                IsVisible="{Binding HasDownvoted, Converter={services:InverseBoolConverter}}"
+                                                Source="down.png"
+                                                TranslationY="5" />
 
-                                        <ImageButton
-                                            Margin="0,5,0,-10"
-                                            BackgroundColor="Transparent"
-                                            HeightRequest="40"
-                                            HorizontalOptions="Start"
-                                            Source="down.png" />
-                                        <ImageButton
-                                            Margin="0,5,0,-50"
-                                            BackgroundColor="Transparent"
-                                            HeightRequest="40"
-                                            HorizontalOptions="Start"
-                                            Source="up.png"
-                                            TranslationX="50"
-                                            TranslationY="-42" />
-                                        <ImageButton
-                                            Margin="0,5,0,-50"
-                                            BackgroundColor="Transparent"
-                                            HeightRequest="40"
-                                            HorizontalOptions="End"
-                                            Source="lemonheart.png"
-                                            TranslationX="10"
-                                            TranslationY="-42" />
+                                            <ImageButton
+                                                x:Name="DownVoted"
+                                                Margin="0,5,0,-10"
+                                                BackgroundColor="LemonChiffon"
+                                                BorderColor="Crimson"
+                                                BorderWidth=".5"
+                                                Clicked="OnDownvoteButtonClicked"
+                                                Command="{Binding Path=BindingContext.DownvoteCommand, Source={x:Reference ComplaintListView}}"
+                                                CommandParameter="{Binding .}"
+                                                HeightRequest="40"
+                                                HorizontalOptions="Start"
+                                                IsVisible="{Binding HasDownvoted}"
+                                                Source="down.png"
+                                                TranslationY="5" />
 
+                                            <Label
+                                                Margin="10,0,10,0"
+                                                FontSize="20"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding Upvotes}"
+                                                TextColor="Black"
+                                                TranslationX="-70"
+                                                TranslationY="-25" />
+
+                                            <ImageButton
+                                                x:Name="UpNotVoted"
+                                                Margin="0,5,0,-50"
+                                                BackgroundColor="Transparent"
+                                                Command="{Binding Path=BindingContext.UpvoteCommand, Source={x:Reference ComplaintListView}}"
+                                                CommandParameter="{Binding .}"
+                                                HeightRequest="40"
+                                                HorizontalOptions="Center"
+                                                IsVisible="{Binding HasUpvoted, Converter={services:InverseBoolConverter}}"
+                                                Source="up.png"
+                                                TranslationX="-20"
+                                                TranslationY="-70" />
+
+                                            <ImageButton
+                                                x:Name="UpVoted"
+                                                Margin="0,5,0,-50"
+                                                BackgroundColor="LemonChiffon"
+                                                BorderColor="Crimson"
+                                                BorderWidth=".5"
+                                                Clicked="OnUpvoteButtonClicked"
+                                                Command="{Binding Path=BindingContext.UpvoteCommand, Source={x:Reference ComplaintListView}}"
+                                                CommandParameter="{Binding .}"
+                                                HeightRequest="40"
+                                                HorizontalOptions="Center"
+                                                IsVisible="{Binding HasUpvoted}"
+                                                Source="up.png"
+                                                TranslationX="-20"
+                                                TranslationY="-70" />
+
+                                            <ImageButton
+                                                x:Name="HasFavorited"
+                                                Margin="0,5,0,-50"
+                                                Padding="2,2,2,2"
+                                                BackgroundColor="LemonChiffon"
+                                                BorderColor="Crimson"
+                                                BorderWidth=".5"
+                                                Clicked="OnFavoriteButtonClicked"
+                                                Command="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ComplaintListView}}"
+                                                CommandParameter="{Binding .}"
+                                                HeightRequest="40"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding IsFavorite}"
+                                                Source="lemonheart.png"
+                                                TranslationX="10"
+                                                TranslationY="-70" />
+
+                                            <ImageButton
+                                                x:Name="HasNotFavorited"
+                                                Margin="0,5,0,-50"
+                                                Padding="2,2,2,2"
+                                                BackgroundColor="Transparent"
+                                                Command="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ComplaintListView}}"
+                                                CommandParameter="{Binding .}"
+                                                HeightRequest="40"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding IsFavorite, Converter={services:InverseBoolConverter}}"
+                                                Source="lemonheart.png"
+                                                TranslationX="10"
+                                                TranslationY="-70" />
+                                        </StackLayout>
                                     </StackLayout>
-
                                 </Frame>
                             </ViewCell>
                         </DataTemplate>
