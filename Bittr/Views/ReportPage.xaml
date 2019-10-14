@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Bittr.Views.ReportPage"
+             Title="REPORT"
+             BackgroundColor="{StaticResource VeryLightYellow}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Close" Clicked="OnCLosedButtonClicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Label
+                Text="Reason f0r reporting"
+                FontFamily="{StaticResource BoldFont}"
+                FontSize="Title" />
+
+                <Editor Placeholder="enter a discription..."
+                HeightRequest="300" 
+                BackgroundColor="{StaticResource LightYellow}"/>
+
+                <Button
+                Text="Submit"
+                Clicked="OnSubmitButtonCLicked"
+            />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
