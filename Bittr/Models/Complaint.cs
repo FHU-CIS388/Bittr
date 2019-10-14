@@ -4,7 +4,7 @@ using Bittr.ViewModels;
 
 namespace Bittr.Models
 {
-    public class Complaint: BaseViewModel
+    public class Complaint : BaseViewModel
     {
         public string Id { get; set; }
 
@@ -17,27 +17,13 @@ namespace Bittr.Models
         public User Creator { get; set; }
 
         private int upvotes = 0;
+
+        //upvotes
         public int Upvotes
         {
             get { return upvotes; }
             set { SetProperty(ref upvotes, value); }
         }
-
-        private string upvoteImageName = "up.png";
-        public string UpvoteImageName
-        {
-            get
-            {
-                return upvoteImageName;
-            }
-            set
-            {
-                SetProperty(ref upvoteImageName, value);
-            }
-        }
-
-        public int Downvotes { get; set; }
-
         private bool hasUpvoted = false;
         public bool HasUpvoted
         {
@@ -45,14 +31,27 @@ namespace Bittr.Models
             set { SetProperty(ref hasUpvoted, value); }
         }
 
-        public bool HasDownvoted { get; set; }
+        //downvotes
+        private bool hasDownvoted = false;
+        public bool HasDownvoted
+        {
+            get { return hasDownvoted; }
+            set { SetProperty(ref hasDownvoted, value); }
+        }
 
-        public bool IsFavorite { get; set; }
+        //favorites
+        private bool isFavorite = false;
+        public bool IsFavorite
+        {
+            get { return isFavorite; }
+            set { SetProperty(ref isFavorite, value); }
+        }
 
         public List<Tag> Tags { get; set; }
 
         public Complaint()
         {
+            Tags = new List<Tag>();
         }
     }
 
