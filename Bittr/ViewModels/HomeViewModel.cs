@@ -1,22 +1,106 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Bittr.Models;
+using Xamarin.Forms;
+using Bittr.Services;
+using System.Threading.Tasks;
 
 namespace Bittr.ViewModels
 {
-    public class HomeViewModel
+    public class HomeViewModel : BaseViewModel
     {
-        public ObservableCollection<Models.Complaint> Complaints { get; set; }
+        public ObservableCollection<Complaint> Complaints { get; set; }
 
         public User User { get; set; }
 
+        public IDataStore<Complaint> complaintsDataStore = new MockDataStoreComplaint();
+
+        private Complaint newComplaint;
+        public Complaint NewComplaint
+        {
+            get
+            {
+                return newComplaint;
+            }
+            set
+            {
+                SetProperty(ref newComplaint, value);
+            }
+        }
+
+        public ICommand PostComplaintCommand { get; set; }
+
+        public ICommand LoadComplaintsCommand { get; set; }
+
+        public ICommand UpvoteCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var complaint = c as Complaint;
+                    complaint.Upvotes++;
+                    complaint.HasUpvoted = true;
+                });
+            }
+        }
+
+
         public HomeViewModel()
         {
-            Complaints = new ObservableCollection<Models.Complaint>();
-            User jack = new User() { FirstName="Reece", LastName="Jack", Username="gamblt589", Avatar="LemonFace.png" };
-            Complaints.Add( new Models.Complaint() { Text= "Loyd is cold!!!!! 🥶", Timestamp= DateTime.Now, Creator= jack, ImageName= "http://static.vibe.com/uploads/2014/01/VIBE-Vixen-Cold-Weather-Meme-7.png" } );
-            Complaints.Add(new Models.Complaint() { Text = "😠 Reece always takes my seat.😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠", Timestamp = DateTime.Now, Creator = jack, ImageName= "https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/44735374_2144069972587194_8140258589919936512_n.jpg?_nc_cat=109&_nc_oc=AQnhFDWDeCvtLyo7RC9QtX8YUrLx_B5R1NlEyqSIsEycDyRxB2lb1jJppVWkqoooeZQ&_nc_ht=scontent-atl3-1.xx&oh=417f8001dbd45b3f8bc9e6ecef54771f&oe=5E28FD70" });
+            User = new User() { Username = "IdontHAVEone", FirstName = "Lexi", LastName = "Hudgins" };
+
+            Complaints = new ObservableCollection<Complaint>();
+
+            //Complaints = await complaintsDataStore.GetItemsAsync();
+
+            NewComplaint = new Complaint();
+
+            LoadComplaintsCommand = new Command(async () => await LoadComplaints());
+            PostComplaintCommand = new Command(PostComplaint);
+
+            //UpvoteCommand = new Command(async(c) => await UpvoteComplaint(c));
+
+            LoadComplaintsCommand.Execute(null);
 
         }
+
+
+
+        private void PostComplaint()
+        {
+            NewComplaint.Creator = User;
+            NewComplaint.TimeStamp = DateTime.Now;
+
+            //Complaints.Add(NewComplaint);
+            Complaints.Insert(0, NewComplaint);
+
+            complaintsDataStore.AddItemAsync(newComplaint);
+
+            NewComplaint = new Complaint();
+
+        }
+
+        private async Task LoadComplaints()
+        {
+            var results = await complaintsDataStore.GetItemsAsync();
+
+            Complaints.Clear();
+
+            foreach (var c in results)
+            {
+                Complaints.Add(c);
+            }
+        }
+
+        /*private async Task UpvoteComplaint(object c)  
+        {
+            Console.WriteLine("in upvote");
+            var complaint = c as Complaint;
+            complaint.Upvotes++;
+        }*/
+
+
     }
 }

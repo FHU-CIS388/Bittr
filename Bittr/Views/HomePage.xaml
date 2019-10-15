@@ -44,8 +44,25 @@
                        HorizontalOptions="Start" />
 
                 </StackLayout>
+                <StackLayout Grid.Row="1">
+                    <Entry
+                    Placeholder="Loyd is freezing cold."
+                    Text="{Binding NewComplaint.Text}"
+                    HorizontalOptions="FillAndExpand" />
 
-                <StackLayout Grid.Row="1"
+                    <ImageButton
+                    Padding="10"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    BackgroundColor="{StaticResource MediumYellow}"
+                    BorderColor="{StaticResource DarkYellow}"
+                    Command="{Binding PostComplaintCommand}"
+                    Source="lemon2.png"
+                    HorizontalOptions="End" />
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="2"
                          Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand"
                          Padding="16">
@@ -74,7 +91,7 @@
 
                 </StackLayout>
 
-                <StackLayout Grid.Row="2"
+                <StackLayout Grid.Row="3"
                          Orientation="Vertical" >
                     <Label Text="I think that we need to fix the parking within Freed Hardeman!"
                         VerticalTextAlignment="Center"

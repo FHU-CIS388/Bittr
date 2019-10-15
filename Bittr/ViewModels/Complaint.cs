@@ -48,7 +48,7 @@ namespace Bittr.ViewModels
 
         public bool isFavorite { get; set; }
 
-        //public List<Tag> Tags { get; set; }
+        public List<Tag> Tags { get; set; }
 
         public Complaint()
         {

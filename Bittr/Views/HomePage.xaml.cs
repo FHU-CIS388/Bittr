@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bittr.ViewModels;
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -10,6 +11,16 @@ namespace Bittr.Views
         public HomePage()
         {
             InitializeComponent();
+
+            BindingContext = new HomeViewModel();
         }
+        public async void OnUpvoteButtonClicked(object sender, EventArgs args)
+        {
+            Console.WriteLine("You upvoted this complaint.");
+        }
+
+
+       
+
     }
 }
