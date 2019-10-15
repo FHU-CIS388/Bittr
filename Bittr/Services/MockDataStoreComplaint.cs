@@ -27,7 +27,8 @@ namespace Bittr.Services
                         new Tag() { Text="#anger"},
                         new Tag() { Text = "#bitter" },
                         new Tag() { Text = "#frigid" }
-                    }
+                    },
+                    VoteScore = 34
                 },
                 
 
@@ -44,7 +45,9 @@ namespace Bittr.Services
                         new Tag() { Text = "#jack" },
                         new Tag() { Text = "#cis388" },
                         new Tag() { Text = "#4kTV" }
-                    }}
+                    },
+                    VoteScore = -12
+                }
             };
 
             foreach (var item in mockItems)

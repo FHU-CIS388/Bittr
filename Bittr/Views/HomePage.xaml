@@ -3,8 +3,6 @@
     x:Class="Bittr.Views.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     xmlns:services="clr-namespace:Bittr.Services"
     Title="BITTR"
     BackgroundColor="{StaticResource VeryLightYellow}">
@@ -36,7 +34,7 @@
                     <Label
                         Margin="0,0,32,0"
                         FontFamily="{StaticResource BoldFont}"
-                        FontSize="66"
+                        FontSize="50"
                         HorizontalTextAlignment="End"
                         Text="BITTER"
                         HorizontalOptions="FillAndExpand" />
@@ -81,139 +79,69 @@
             <ListView
                 x:Name="ComplaintListView"
                 Grid.Row="2"
-                HasUnevenRows="True"
-                ios:ListView.SeparatorStyle="FullWidth"
+                HasUnevenRows="True"                
+                SeparatorVisibility="None"
                 CachingStrategy="RecycleElement"
                 ItemsSource="{Binding Complaints}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-
-                            <Grid Margin="16,24">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto" />
-                                </Grid.RowDefinitions>
-
-                                <Grid.ColumnDefinitions>
-
-                                    <ColumnDefinition Width="80" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-
-                                <StackLayout Grid.Column="0" Orientation="Vertical">
-                                    <circle:CircleImage
-                                        WidthRequest="70"
-                                        HeightRequest="70"
-                                        Aspect="AspectFill"
-                                        BorderColor="{StaticResource MediumYellow}"
-                                        BorderThickness="1"
-                                        Source="dshannon.jpg"
-                                        HorizontalOptions="Center" />
-
-                                    <!--  up vote  -->
-                                    <ImageButton
-                                        x:Name="upArrowVoted"
-                                        Padding="10"
-                                        WidthRequest="60"
-                                        HeightRequest="60"
-                                        Aspect="AspectFit"
-                                        BackgroundColor="Transparent"
-                                        Command="{Binding Path=BindingContext.UpvoteCommand, Source={x:Reference ComplaintListView}}"
-                                        CommandParameter="{Binding .}"
-                                        IsVisible="{Binding HasUpvoted, Converter={services:InverseBoolConverter}}"
-                                        Source="{Binding UpvoteImageName}"
-                                        HorizontalOptions="Center"
-                                        VerticalOptions="Start" />
-
-                                    <ImageButton
-                                        x:Name="upArrowNotVoted"
-                                        Padding="0"
-                                        WidthRequest="60"
-                                        HeightRequest="60"
-                                        Aspect="AspectFit"
-                                        BackgroundColor="Transparent"
-                                        Command="{Binding Path=BindingContext.UpvoteCommand, Source={x:Reference ComplaintListView}}"
-                                        CommandParameter="{Binding .}"
-                                        IsVisible="{Binding HasUpvoted}"
-                                        Source="up.png"
-                                        HorizontalOptions="Center"
-                                        VerticalOptions="Start" />
-
-                                    <Label
-                                        FontSize="14"
-                                        Text="{Binding Upvotes}"
-                                        TextColor="Black"
-                                        HorizontalOptions="Center" />
-
-
-                                    <!--  down vote  -->
-
-                                    <ImageButton
-                                        x:Name="downArrow"
-                                        WidthRequest="40"
-                                        Aspect="AspectFit"
-                                        Source="down.png"
-                                        HorizontalOptions="Center"
-                                        VerticalOptions="Start" />
-                                    <Label
-                                        FontSize="14"
-                                        Text="{Binding Downvotes}"
-                                        TextColor="Black"
-                                        HorizontalOptions="Center" />
-
-                                </StackLayout>
-
-
-                                <StackLayout Grid.Column="1" Orientation="Vertical">
-
+                            <Frame BorderColor="Gray"
+                                   CornerRadius="5"
+                                   Padding="8"
+                                   Margin="8"
+                                   HasShadow="True">
+                                <StackLayout Spacing="10">
                                     <StackLayout Orientation="Horizontal">
-                                        <Label
-                                            FontFamily="{StaticResource BoldFont}"
-                                            FontSize="Medium"
-                                            HorizontalTextAlignment="Start"
-                                            Text="{Binding Creator.Username}"
-                                            TextColor="Black"
-                                            VerticalTextAlignment="End"
-                                            HorizontalOptions="StartAndExpand" />
-                                        <Label
-                                            FontFamily="{StaticResource RegularFont}"
-                                            Text="{Binding Timestamp}"
-                                            TextColor="{StaticResource DarkGray}"
-                                            VerticalTextAlignment="End"
-                                            HorizontalOptions="End" />
+                                        
+                                        <Label Text="{Binding Creator.Username}"
+                                               FontSize="Medium"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="StartAndExpand"
+                                               />
+                                        <Label Text="{Binding Timestamp}" 
+                                               FontSize="Caption"
+                                               HorizontalOptions="End"
+                                               VerticalOptions="Center"/>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <ImageButton Source="lemon2.png" 
+                                                         BackgroundColor="Transparent"
+                                                         BorderColor="Transparent"                                                         
+                                                         HeightRequest="25"
+                                                         WidthRequest="25"
+                                                         Grid.Row="0"
+                                                         HorizontalOptions="Center"
+                                                         IsEnabled="{Binding HasUpvoted, Converter={services:InverseBoolConverter}}"
+                                                         IsVisible="{Binding HasUpvoted, Converter={services:InverseBoolConverter}}"
+                                                         Command="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ComplaintListView}}"
+                                                         CommandParameter="{Binding .}"
+                                                         />
+                                            <ImageButton Source="lemon1.png" 
+                                                         BackgroundColor="Transparent"
+                                                         BorderColor="Transparent"                                                         
+                                                         HeightRequest="25"
+                                                         WidthRequest="25"
+                                                         Grid.Row="0"
+                                                         HorizontalOptions="Center"
+                                                         IsEnabled="{Binding IsFavorite}"
+                                                         IsVisible="{Binding IsFavorite}"
+                                                         Command="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ComplaintListView}}"
+                                                         CommandParameter="{Binding .}"
+                                                         />
+                                        </Grid>
+                                        
                                     </StackLayout>
 
-                                    <!--  report  -->
-
-
-                                    <Grid Margin="0,10">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="30" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label
-                                            Grid.Column="0"
-                                            FontFamily="{StaticResource RegularFont}"
-                                            FontSize="Large"
-                                            Text="{Binding Text}"
-                                            TextColor="Black"
-                                            HorizontalOptions="StartAndExpand" />
-
-                                        <Button
-                                            Grid.Column="1"
-                                            Padding="0"
-                                            WidthRequest="20"
-                                            HeightRequest="20"
-                                            VerticalOptions="Start"
-                                            HorizontalOptions="End"
-                                            BackgroundColor="{StaticResource LightYellow}"
-                                            Clicked="OnReportButtonClicked"
-                                            CornerRadius="10"
-                                            Text="!"
-                                            TextColor="{StaticResource Gray}"
-                                            />
-                                    </Grid>
+                                    <BoxView Color="Gray"
+                                             HeightRequest="2"
+                                             HorizontalOptions="Fill" />
+                                    <Image Source="{Binding ImageName}" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           Aspect="AspectFit"/>
+                                    <Label Text="{Binding Text}" FontSize="Large" />
 
                                     <!--  tags  -->
                                     <FlexLayout
@@ -242,25 +170,76 @@
                                         </BindableLayout.ItemTemplate>
                                     </FlexLayout>
 
-                                    <!--  lemon favorite icon button  -->
-                                    <ImageButton
-                                        x:Name="lemon"
-                                        WidthRequest="43"
-                                        Source="lemon7.jpg"
-                                        HorizontalOptions="End"
-                                        VerticalOptions="CenterAndExpand" />
+                                    <BoxView Color="Gray"
+                                             HeightRequest="1"
+                                             HorizontalOptions="Fill"
+                                             Margin="0,8,0,8"/>
 
-                                    <!--  status label  -->
-                                    <Label
-                                        Text="Status: in progress"
-                                        TextColor="{StaticResource Gray}"
-                                        HorizontalOptions="End" />
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <!-- UPVOTE BUTTON -->
+                                        <ImageButton x:Name="btnUpvote"
+                                                     Source="up.png" 
+                                                     IsVisible="{Binding DisplayUpBtn}"
+                                                     IsEnabled="{Binding DisplayUpBtn}"
+                                                     Grid.Column="0"
+                                                     WidthRequest="30"
+                                                     HeightRequest="30"
+                                                     Aspect="AspectFit" 
+                                                     HorizontalOptions="Center"
+                                                     BackgroundColor="Transparent"
+                                                     BorderColor="Transparent"
+                                                     Command="{Binding Path=BindingContext.UpvoteCommand, Source={x:Reference ComplaintListView}}"
+                                                     CommandParameter="{Binding .}"/>
+                                        <ImageButton x:Name="btnUpvoted"
+                                                     Source="up_filled.png" 
+                                                     IsVisible="{Binding DisplayUpFilledBtn}"
+                                                     IsEnabled="{Binding DisplayUpFilledBtn}"
+                                                     Grid.Column="0"
+                                                     WidthRequest="30"
+                                                     HeightRequest="30"
+                                                     Aspect="AspectFit" 
+                                                     HorizontalOptions="Center"
+                                                     BackgroundColor="Transparent"
+                                                     BorderColor="Transparent"
+                                                     Command="{Binding Path=BindingContext.UpvoteCommand, Source={x:Reference ComplaintListView}}"
+                                                     CommandParameter="{Binding .}"/>
+                                        
+                                        <!-- VOTE SCORE -->
+                                        <Label Text="{Binding VoteScore}"
+                                               Grid.Column="1"
+                                               HorizontalOptions="Center"/>
+
+                                        <!-- DOWNVOTE BUTTON -->
+                                        <ImageButton x:Name="btnDownvote"
+                                                     Source="down.png" 
+                                                     IsVisible="{Binding DisplayDownBtn}"
+                                                     IsEnabled="{Binding DisplayDownBtn}"
+                                                     Grid.Column="2"
+                                                     WidthRequest="30"
+                                                     HorizontalOptions="Center"
+                                                     BackgroundColor="Transparent"
+                                                     BorderColor="Transparent"
+                                                     Command="{Binding Path=BindingContext.DownvoteCommand, Source={x:Reference ComplaintListView}}"
+                                                     CommandParameter="{Binding .}"/>
+                                        <ImageButton x:Name="btnDownvoted"
+                                                     Source="down_filled.png" 
+                                                     IsVisible="{Binding DisplayDownFilledBtn}"
+                                                     IsEnabled="{Binding DisplayDownFilledBtn}"
+                                                     Grid.Column="2"
+                                                     WidthRequest="30"
+                                                     HorizontalOptions="Center"
+                                                     BackgroundColor="Transparent"
+                                                     BorderColor="Transparent"
+                                                     Command="{Binding Path=BindingContext.DownvoteCommand, Source={x:Reference ComplaintListView}}"
+                                                     CommandParameter="{Binding .}"/>
+                                    </Grid>                                    
                                 </StackLayout>
-
-
-
-
-                            </Grid>
+                            </Frame>                                           
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

@@ -39,8 +39,73 @@ namespace Bittr.ViewModels
                 return new Command((c) =>
                 {
                     var complaint = c as Complaint;
-                    complaint.Upvotes++;
-                    complaint.HasUpvoted = true;
+                    if (!complaint.HasUpvoted)
+                    {
+                        complaint.VoteScore++;                        
+                        complaint.DisplayUpBtn = false;
+                        complaint.DisplayUpFilledBtn = true;
+                        complaint.HasUpvoted = true;
+                        if (complaint.HasDownvoted)
+                        {
+                            complaint.VoteScore++;
+                            complaint.DisplayDownBtn = true;
+                            complaint.DisplayDownFilledBtn = false;
+                            complaint.HasDownvoted = false;
+                        }
+                    }
+                    else
+                    {
+                        complaint.VoteScore--;
+                        complaint.DisplayUpBtn = true;
+                        complaint.DisplayUpFilledBtn = false;
+                        complaint.HasUpvoted = false;
+                    }
+
+                });
+            }
+        }
+        public ICommand DownvoteCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var complaint = c as Complaint;
+                    if (!complaint.HasDownvoted)
+                    {
+                        complaint.VoteScore--;
+                        complaint.DisplayDownBtn = false;
+                        complaint.DisplayDownFilledBtn = true;
+                        complaint.HasDownvoted = true;
+                        if (complaint.HasUpvoted)
+                        {
+                            complaint.VoteScore--;
+                            complaint.DisplayUpBtn = true;
+                            complaint.DisplayUpFilledBtn = false;
+                            complaint.HasUpvoted = false;
+                        }
+                    }
+                    else
+                    {
+                        complaint.VoteScore++;
+                        complaint.DisplayDownBtn = true;
+                        complaint.DisplayDownFilledBtn = false;
+                        complaint.HasDownvoted = false;
+                    }
+
+                });
+            }
+        }
+
+        public ICommand FavoriteCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var complaint = c as Complaint;
+                    complaint.IsFavorite = !complaint.IsFavorite;
+
                 });
             }
         }
@@ -92,7 +157,16 @@ namespace Bittr.ViewModels
                 Complaints.Add(c);
             }
         }
-
+        //private void UpdateVoteScore(Complaint complaint)
+        //{
+        //    int value = 0;
+        //    foreach (Vote v in complaint.Votes)
+        //    {
+        //        if (v.Type == VoteType.UP) value++;
+        //        else value--;
+        //    }
+        //    complaint.VoteScore = value;
+        //}
         /*private async Task UpvoteComplaint(object c)  
         {
             Console.WriteLine("in upvote");
