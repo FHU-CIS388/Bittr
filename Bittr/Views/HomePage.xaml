@@ -1,51 +1,98 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              Title="BITTR"
              x:Class="Bittr.Views.HomePage">
     <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
 
-
-            <StackLayout Grid.Row="0"
+                <StackLayout Grid.Row="0"
                          Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand"
                          Padding="16">
 
-                <Label
+                    <Label
                     Margin="0, 0, 32, 0"
                     FontSize="24"
                     HorizontalOptions="StartAndExpand"
                     HorizontalTextAlignment="End"
                     >
-                    
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="What are you " />
-                                <Span Text="BITTER"
-                                      FontAttributes="Bold"
-                                      FontSize="72" />
-                                <Span Text=" about today?" />
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
 
-                <Image Source="lemon1"
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="What are you " />
+                                    <Span Text="BITTER"
+                                      FontAttributes="Bold"
+                                      FontSize="70" />
+                                    <Span Text=" about today?" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Image Source="lemon1"
                        WidthRequest="100"
                        HorizontalOptions="Start" />
 
-            </StackLayout>
+                </StackLayout>
 
+                <StackLayout Grid.Row="1"
+                         Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Padding="16">
+                    <controls:CircleImage
+                    Source="lemon4.jpg"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    Aspect="AspectFill"
+                    BorderColor="Gray"
+                    BorderThickness="2"
+                    />
+                    
+                <Label Text="Jimmy"
+                       VerticalTextAlignment="Center"
+                       FontSize="25">
+                        </Label>
+                        <Image Source="lemon3.png"
+                           HeightRequest="35"
+                           WidthRequest="35"
+                            TranslationX="200"></Image>
+                    <Image Source="lemon3.png"
+                           HeightRequest="35"
+                           WidthRequest="35"
+                            TranslationX="120"></Image>
 
-        </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2"
+                         Orientation="Vertical" >
+                    <Label Text="I think that we need to fix the parking within Freed Hardeman!"
+                        VerticalTextAlignment="Center"
+                        FontSize="20" ></Label>
+                    
+                    <Image Source="lemon3.png"
+                       HeightRequest="300"></Image>
+
+                    <Image Source="lemon6.png"
+                           HeightRequest="70"
+                           WidthRequest="70"
+                           TranslationX="150"></Image>
+                    
+                </StackLayout>
+                
+
+            </Grid>
+        </ScrollView>
 
     </ContentPage.Content>
 </ContentPage>
