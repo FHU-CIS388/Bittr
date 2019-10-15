@@ -99,29 +99,7 @@ namespace Bittr.ViewModels
             }
         }
         
-        public ICommand ExtractTagsCommand
-        {
-            get
-            {
-                return new Command((c) =>
-                {
-                    var complaint = c as Complaint;
-                    string[] tokens = complaint.Text.Split(' ');
-                    foreach (String token in tokens)
-                    {
-                        if (token.StartsWith("#"))
-                        {
-                            complaint.Tags.Add(token);
-                        }
-                    }
-                }
-
-
-
-                );
-            }
-        }
-
+        
        
 
 
