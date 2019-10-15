@@ -48,6 +48,19 @@ namespace Bittr.Models
                 SetProperty(ref downvoteImageName, value);
             }
         }
+        private string favoriteImageName = "lemon.jpg";
+
+        public string FavoriteImageName
+        {
+            get
+            {
+                return favoriteImageName;
+            }
+            set
+            {
+                SetProperty(ref favoriteImageName, value);
+            }
+        }
 
         private int downvotes = 0;
         public int Downvotes { 
@@ -70,7 +83,12 @@ namespace Bittr.Models
         
         }
 
-        public bool IsFavorite { get; set; }
+        private bool isFavorite = false;
+        public bool IsFavorite { 
+            get { return isFavorite; }
+            set { SetProperty(ref isFavorite, value); }
+        
+        }
 
         public List<Tag> Tags { get; set; }
 

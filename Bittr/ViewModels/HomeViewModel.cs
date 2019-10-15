@@ -85,7 +85,25 @@ namespace Bittr.ViewModels
             }
         }
 
+        public ICommand FavoriteCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var complaint = c as Complaint;
+                    if (complaint.IsFavorite)
+                    {
+                        complaint.IsFavorite = false;
+                    }
+                    else
+                    {
+                        complaint.IsFavorite = true;
+                    }
 
+                });
+            }
+        }
         public HomeViewModel()
         {
             User = new User() { Username="IdontHAVEone", FirstName="Lexi", LastName="Hudgins"};

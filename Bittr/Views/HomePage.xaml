@@ -263,9 +263,23 @@
 
                                     <!--  lemon favorite icon button  -->
                                     <ImageButton
-                                        x:Name="lemon"
+                                        x:Name="lemonFavorite"
+                                        Padding="10"
+                                        WidthRequest="43"
+                                        Command="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ComplaintListView}}"
+                                        CommandParameter="{Binding .}"
+                                        IsVisible="{Binding IsFavorite, Converter={services:InverseBoolConverter}}"
+                                        Source="lemon7.jpg"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="CenterAndExpand" />
+
+                                    <ImageButton
+                                        x:Name="lemonNotFavorite"
                                         WidthRequest="43"
                                         Source="lemon7.jpg"
+                                        Command="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ComplaintListView}}"
+                                        CommandParameter="{Binding .}"
+                                        IsVisible="{Binding IsFavorite}"
                                         HorizontalOptions="End"
                                         VerticalOptions="CenterAndExpand" />
 
