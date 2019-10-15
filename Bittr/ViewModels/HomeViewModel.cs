@@ -161,7 +161,11 @@ namespace Bittr.ViewModels
             {
                 if (token.StartsWith("#"))
                 {
-                    NewComplaint.Tags.Add(token);
+                    Tag t = new Tag();
+                    t.Id = NewComplaint.Id;
+                    t.Text = token;
+
+                    NewComplaint.Tags.Add(t);
                 }
             }
 

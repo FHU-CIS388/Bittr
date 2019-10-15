@@ -80,10 +80,10 @@ namespace Bittr.Models
 
 
 
-        private List<String> tags;
+        private List<Tag> tags;
 
 
-        public List<String> Tags
+        public List<Tag> Tags
         {
             get
             {
