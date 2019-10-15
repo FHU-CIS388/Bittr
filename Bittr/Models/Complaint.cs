@@ -1,55 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
-namespace Bittr.Models
+using Xamarin.Forms;
+namespace Bittr.ViewModels
 {
-    public class Complaint
+    public class Complaint : BaseViewModel
     {
+        public string Id { get; set; }
+
         public string Text { get; set; }
 
         public DateTime Timestamp { get; set; }
-        public string TimeString { get; }
 
         public string ImageName { get; set; }
 
-        public User Creator { get; set; }
+        public Models.User Creator { get; set; }
 
-        public double Progress { get; set; }
+        private int upvotes = 0;
+        public int Upvotes
+        {
+            get { return upvotes; }
+            set { SetProperty(ref upvotes, value); }
+        }
 
-        public List<int> UpVotes { get; set; }
-        public string UpVoteCount { get; set; }
-        
-        public List<int> DownVotes { get; set; }
-        public string DownVoteCount { get; set; }
+        private string upvoteImageName = "up.png";
+        public string UpvoteImageName
+        {
+            get
+            {
+                return upvoteImageName;
+            }
+            set
+            {
+                SetProperty(ref upvoteImageName, value);
+            }
+        }
 
-        public string Tags { get; set; }
-        
-        
+        public int Downvotes { get; set; }
+
+        private bool hasUpvoted = false;
+        public bool HasUpvoted
+        {
+            get { return hasUpvoted; }
+            set { SetProperty(ref hasUpvoted, value); }
+        }
+
+        public bool HasDownvoted { get; set; }
+
+        public bool IsFavorite { get; set; }
+
+        public List<Models.Tag> Tags { get; set; }
+
         public Complaint()
         {
-
-            TimeSpan timeDelta = DateTime.Now - Timestamp;
-            if(timeDelta.TotalSeconds < 60)
-            {
-                TimeString = "Just now";
-            } 
-            else if(timeDelta.TotalMinutes < 60){
-                TimeString = Math.Floor(timeDelta.TotalMinutes).ToString() + " minutes ago";
-            }
-            else if(timeDelta.TotalHours < 24)
-            {
-                TimeString = Math.Floor(timeDelta.TotalHours).ToString() + " hours ago";
-            }
-            else if(timeDelta.TotalHours <= 48)
-            {
-                TimeString = "Yesterday";
-            }
-            else
-            {
-                TimeString = Timestamp.ToString("ddd, MMM d");
-                if (timeDelta.TotalDays > 364) TimeString += Timestamp.ToString(", yyyy");
-            }
-            
-            
         }
+
+        public static List<Models.Tag> ExtractTags(string s)
+        {
+            List<Models.Tag> list = new List<Models.Tag>();
+            char[] splitter = { ' ', ',', ';', '.', '!', '?', '\\' };
+            string[] r = s.Split(splitter);
+            foreach(string i in r)
+            {
+                if (i.StartsWith("#")) list.Add(new Models.Tag() { Text = i.ToLower() });
+            }
+            return list;
+        }
+
     }
+
 }

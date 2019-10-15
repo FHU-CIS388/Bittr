@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Bittr.Views.PostPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <Grid>
+            <Editor
+                x:Name="BitterPost"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="24,48,24,8"
+                AutoSize="Disabled"
+                BackgroundColor="Transparent"
+                FontFamily="NormalFont"
+                FontSize="Large"
+                Keyboard="Chat"
+                MaxLength="169"
+                Placeholder="What are you bittr about?"
+                PlaceholderColor="Gray"
+                Text="{Binding PostText}" />
+            <ImageButton
+                Grid.Row="0"
+                Grid.Column="0"
+                AnchorY=".96"
+                BackgroundColor="Transparent"
+                Clicked="Done"
+                Scale=".2"
+                Source="lemonplus.png" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

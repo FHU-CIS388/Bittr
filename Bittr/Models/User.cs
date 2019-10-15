@@ -17,5 +17,7 @@ namespace Bittr.Models
         {
             UserID = 5;
         }
+
+        
     }
 }

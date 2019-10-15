@@ -6493,28 +6493,31 @@ namespace Bittr.Droid
 			public const int profile3 = 2131165514;
 			
 			// aapt resource value: 0x7F07014B
-			public const int tooltip_frame_dark = 2131165515;
+			public const int reecenoel = 2131165515;
 			
 			// aapt resource value: 0x7F07014C
-			public const int tooltip_frame_light = 2131165516;
+			public const int tooltip_frame_dark = 2131165516;
 			
 			// aapt resource value: 0x7F07014D
-			public const int trending1 = 2131165517;
+			public const int tooltip_frame_light = 2131165517;
 			
 			// aapt resource value: 0x7F07014E
-			public const int trending2 = 2131165518;
+			public const int trending1 = 2131165518;
 			
 			// aapt resource value: 0x7F07014F
-			public const int trending3 = 2131165519;
+			public const int trending2 = 2131165519;
 			
 			// aapt resource value: 0x7F070150
-			public const int up = 2131165520;
+			public const int trending3 = 2131165520;
 			
 			// aapt resource value: 0x7F070151
-			public const int up_filled = 2131165521;
+			public const int up = 2131165521;
 			
 			// aapt resource value: 0x7F070152
-			public const int xamarin_logo = 2131165522;
+			public const int up_filled = 2131165522;
+			
+			// aapt resource value: 0x7F070153
+			public const int xamarin_logo = 2131165523;
 			
 			static Drawable()
 			{

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Bittr.ViewModels;
 using Xamarin.Forms;
 
 namespace Bittr.Views
@@ -10,6 +10,7 @@ namespace Bittr.Views
         public ProfilePage()
         {
             InitializeComponent();
+            BindingContext = new ProfileViewModel();
         }
     }
 }

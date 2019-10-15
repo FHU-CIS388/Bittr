@@ -80,7 +80,7 @@
                                 </Grid>
 
                                 <Label
-                                    Margin="16,8,16,4"
+                                    Margin="64,8,64,4"
                                     FontFamily="RegularFont"
                                     FontSize="Large"
                                     Text="{Binding Text}" />
@@ -89,14 +89,39 @@
                                     Aspect="AspectFit"
                                     HorizontalOptions="FillAndExpand"
                                     Source="{Binding ImageName}" />
-                                <Label Margin="16,2,16,2" Text="{Binding Tags}" />
+                                <FlexLayout
+                                    AlignContent="Start"
+                                    AlignItems="Center"
+                                    BindableLayout.ItemsSource="{Binding Tags}"
+                                    Direction="Row"
+                                    JustifyContent="Start"
+                                    Wrap="Wrap">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Button
+                                                Margin="5,5"
+                                                Padding="0"
+                                                BackgroundColor="Transparent"
+                                                BorderColor="{StaticResource MediumYellow}"
+                                                BorderWidth="1"
+                                                CornerRadius="14"
+                                                FontFamily="{StaticResource RegularFont}"
+                                                FontSize="Body"
+                                                HeightRequest="30"
+                                                Text="{Binding Text}"
+                                                TextColor="{StaticResource TextGray}" />
+
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </FlexLayout>
 
 
 
 
-                                <Grid>
+                                <Grid Margin="4" Padding="4">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="32" />
+                                        <RowDefinition Height="16" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="32" />
@@ -125,7 +150,7 @@
                                         Margin="2"
                                         Aspect="Fill"
                                         BackgroundColor="Transparent"
-                                        Source="lemondown.png" />
+                                        Source="{Binding DownvoteImage}" />
                                     <Label
                                         Grid.Row="0"
                                         Grid.Column="3"
@@ -157,10 +182,11 @@
             <ImageButton
                 Grid.Row="0"
                 Grid.Column="0"
-                AnchorX=".97"
-                AnchorY="0.97"
+                AnchorX=".98"
+                AnchorY="0.98"
                 BackgroundColor="Transparent"
-                Scale=".2"
+                Clicked="CreatePost"
+                Scale=".15"
                 Source="lemonplus.png" />
 
         </Grid>

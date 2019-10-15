@@ -1,8 +1,27 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="PROFILE"
-             x:Class="Bittr.Views.ProfilePage">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Bittr.Views.ProfilePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="PROFILE">
     <ContentPage.Content>
+        <ListView BindingContext="{Binding PrimaryUser}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            Margin="32"
+                            HorizontalOptions="StartAndExpand"
+                            Orientation="Vertical"
+                            Spacing="8">
+                            <Label Text="Name" />
+                            <Entry Text="{Binding FullName, Mode=TwoWay}" />
+                            <Label Text="Bio" />
+                            <Entry Text="{Binding Bio, Mode=TwoWay}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
