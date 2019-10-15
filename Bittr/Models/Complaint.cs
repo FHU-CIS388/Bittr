@@ -58,9 +58,44 @@ namespace Bittr.Models
             }
         }
 
-        public bool IsFavorite { get; set; }
+        private bool isFavorite = false;
+        public String imageSrc = "lemon3.jpg";
+        public String ImageSrc {
+            get
+            {
+                return imageSrc;
+            }
+            set
+            {
+                SetProperty(ref imageSrc, value);
+            }
+        
+        }
 
-        public List<Tag> Tags { get; set; }
+        public bool IsFavorite
+        {
+            get { return isFavorite; }
+            set { SetProperty(ref isFavorite, value); }
+        }
+
+
+
+        private List<String> tags;
+
+
+        public List<String> Tags
+        {
+            get
+            {
+                return Tags;
+            }
+
+            set 
+                { 
+                SetProperty(ref tags, value);
+        }
+                
+            }
 
         public Complaint()
         {

@@ -36,7 +36,9 @@
                 <Entry
                     Placeholder="Loyd is freezing cold."
                     Text="{Binding NewComplaint.Text}"
-                    HorizontalOptions="FillAndExpand" />
+                    HorizontalOptions="FillAndExpand"
+                    
+                    />
 
                 <ImageButton
                     Padding="10"
@@ -129,14 +131,14 @@
                                         Source="down.png"
                                         Command="{Binding Path=BindingContext.DownvoteCommand, Source={x:Reference ComplaintListView}}"
                                         CommandParameter="{Binding .}"
-                                        
+                                       
                                         HorizontalOptions="Center"
                                         VerticalOptions="Start" 
                                        BackgroundColor="Transparent"
                                         />
                                     <Label
                                         FontSize="14"
-                                        Text="{Binding Downvotes}"
+                                        Text=""
                                         TextColor="Black"
                                         HorizontalOptions="Center" />
 
@@ -207,7 +209,7 @@
                                             <DataTemplate>
                                                 <Button
                                                     Margin="5,5"
-                                                    Padding="10"
+                                                    Padding="0"
                                                     HeightRequest="30"
                                                     BackgroundColor="{StaticResource LightYellow}"
                                                     CornerRadius="14"
@@ -224,11 +226,24 @@
                                     <ImageButton
                                         x:Name="lemon"
                                         WidthRequest="43"
+                                        Source="{Binding ImageSrc}"
+                                        Command="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ComplaintListView}}"
+                                        CommandParameter="{Binding .}"
+                                        IsVisible="{Binding IsFavorite, Converter={services:InverseBoolConverter}}"
+                                        BackgroundColor="Transparent"
+                                        Aspect="AspectFit"
+                                        
+                                        HorizontalOptions="End"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <ImageButton
+                                        x:Name="lemonsss"
+                                        WidthRequest="55"
                                         Source="lemon7.jpg"
                                         Command="{Binding Path=BindingContext.FavoriteCommand, Source={x:Reference ComplaintListView}}"
                                         CommandParameter="{Binding .}"
                                          IsVisible="{Binding IsFavorite}"
-                                        
+                                        BackgroundColor="Transparent"
+                                        Aspect="AspectFit"
                                         HorizontalOptions="End"
                                         VerticalOptions="CenterAndExpand" />
 

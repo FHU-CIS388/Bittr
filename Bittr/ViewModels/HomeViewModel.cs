@@ -45,7 +45,7 @@ namespace Bittr.ViewModels
                         complaint.Upvotes--;
                         complaint.HasUpvoted = false;
                     }
-                    else
+                    else if (!complaint.HasDownvoted)
                     {
                         complaint.Upvotes++;
                         complaint.HasUpvoted = true;
@@ -66,7 +66,7 @@ namespace Bittr.ViewModels
                         complaint.Downvotes--;
                         complaint.HasDownvoted = false;
                     }
-                    else
+                    else if (!complaint.HasUpvoted)
                     {
 
                         complaint.Downvotes++;
@@ -76,31 +76,8 @@ namespace Bittr.ViewModels
             }
         }
 
-        public ICommand UnUpVoteCommand
-        {
-            get
-            {
-                return new Command((c) =>
-                {
-                    var complaint = c as Complaint;
-                    complaint.Upvotes--;
-                    
-                });
-            }
-        }
 
-        public ICommand UnDownVoteCommand
-        {
-            get
-            {
-                return new Command((c) =>
-                {
-                    var complaint = c as Complaint;
-                    complaint.Downvotes--;
 
-                });
-            }
-        }
 
         public ICommand FavoriteCommand
         {
@@ -121,7 +98,31 @@ namespace Bittr.ViewModels
                 });
             }
         }
+        
+        public ICommand ExtractTagsCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var complaint = c as Complaint;
+                    string[] tokens = complaint.Text.Split(' ');
+                    foreach (String token in tokens)
+                    {
+                        if (token.StartsWith("#"))
+                        {
+                            complaint.Tags.Add(token);
+                        }
+                    }
+                }
 
+
+
+                );
+            }
+        }
+
+       
 
 
 
@@ -155,6 +156,16 @@ namespace Bittr.ViewModels
             Complaints.Insert(0, NewComplaint);
 
             NewComplaint = new Complaint();
+            string[] tokens = NewComplaint.Text.Split(' ');
+            foreach (String token in tokens)
+            {
+                if (token.StartsWith("#"))
+                {
+                    NewComplaint.Tags.Add(token);
+                }
+            }
+
+            
 
         }
 
