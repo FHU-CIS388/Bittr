@@ -14,6 +14,7 @@ namespace Bittr.Models
 
         public string ImageName { get; set; }
 
+
         public User Creator { get; set; }
 
         private int upvotes = 0;
@@ -80,14 +81,14 @@ namespace Bittr.Models
 
 
 
-        private List<Tag> tags;
+        private List<Tag> tags = new List<Tag> ();
 
 
         public List<Tag> Tags
         {
             get
             {
-                return Tags;
+                return tags;
             }
 
             set 

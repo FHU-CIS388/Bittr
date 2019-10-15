@@ -130,25 +130,35 @@ namespace Bittr.ViewModels
             NewComplaint.Creator = User;
             NewComplaint.Timestamp = DateTime.Now;
 
-            //Complaints.Add(NewComplaint);
-            Complaints.Insert(0, NewComplaint);
 
-            NewComplaint = new Complaint();
+
+            int count = 0;
             string[] tokens = NewComplaint.Text.Split(' ');
             foreach (String token in tokens)
             {
                 if (token.StartsWith("#"))
                 {
                     Tag t = new Tag();
-                    t.Id = NewComplaint.Id;
+                    t.Id = User.ToString();
                     t.Text = token;
 
                     NewComplaint.Tags.Add(t);
+                    tokens[count] = "";
+                    
                 }
+                count++;
             }
-
+            string s = "";
             
+            foreach(String t in tokens)
+            {
+                s = s + " " + t;
+            }
+            NewComplaint.Text = s;
 
+            //Complaints.Add(NewComplaint);
+            Complaints.Insert(0, NewComplaint);
+            NewComplaint = new Complaint();
         }
 
         private async Task LoadComplaints()
