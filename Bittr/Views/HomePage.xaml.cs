@@ -7,11 +7,20 @@ namespace Bittr.Views
 {
     public partial class HomePage : ContentPage
     {
+
+
         public HomePage()
         {
             InitializeComponent();
 
             BindingContext = new HomeViewModel();
+        }
+    
+        public async void OnReportButtonClicked(object sender, EventArgs args)
+        {
+            var reportPage = new ReportPage();
+
+            await Navigation.PushModalAsync(new NavigationPage(reportPage));
         }
     }
 }

@@ -1,44 +1,45 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="Bittr.App">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="Bittr.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
-            <!--Global Styles-->
+            <!--  Global Styles  -->
             <Color x:Key="Green">#1DBF04</Color>
             <Color x:Key="DarkYellow">#F2B705</Color>
             <Color x:Key="MediumYellow">#F2C84B</Color>
             <Color x:Key="LightYellow">#F2E3B6</Color>
+            <Color x:Key="VeryLightYellow">#fefdf9</Color>
             <Color x:Key="Black">#0D0D0D</Color>
             <Color x:Key="Gray">#8c8c8c</Color>
-            
+
+
+            <Color x:Key="SlateDark">#767D92</Color>
+            <Color x:Key="DarkGray">#121212</Color>
+            <Color x:Key="TextGray">#212121</Color>
+
             <Color x:Key="NavigationPrimary">#F2B705</Color>
 
 
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor"
-                        Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="BarTextColor"
-                        Value="White" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="White" />
             </Style>
-            
-            <!-- Fonts -->
-            <OnPlatform x:TypeArguments="x:String" x:Key="RegularFont">
-                <On Platform="Android" Value="Bitter-Regular.ttf#Bitter"/>
-                <On Platform="iOS" Value="Bitter-Regular"/>
+
+            <!--  Fonts  -->
+
+            <OnPlatform x:Key="RegularFont" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Bitter-Regular.ttf#Bitter" />
+                <On Platform="iOS" Value="Bitter-Regular" />
             </OnPlatform>
 
-            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
-                <On Platform="Android" Value="Bitter-Bold.ttf#Bitter"/>
-                <On Platform="iOS" Value="Bitter-Bold"/>
-            </OnPlatform>
-
-            <OnPlatform x:TypeArguments="x:String" x:Key="ItalicFont">
-                <On Platform="Android" Value="Bitter-Italic.ttf#Bitter"/>
-                <On Platform="iOS" Value="Bitter-Italic"/>
+            <OnPlatform x:Key="BoldFont" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Bitter-Bold.ttf#Bitter" />
+                <On Platform="iOS" Value="Bitter-Bold" />
             </OnPlatform>
 
         </ResourceDictionary>

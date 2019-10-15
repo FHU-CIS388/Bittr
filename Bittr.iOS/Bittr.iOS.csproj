@@ -172,12 +172,24 @@
     <BundleResource Include="Resources\upvote.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\lemonheart.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ellipses.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\loyd1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\post.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\downvoteselect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\upvoteselect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\favoriteselect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\favorite.png" />
   </ItemGroup>
 </Project>
