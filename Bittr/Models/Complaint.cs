@@ -36,7 +36,25 @@ namespace Bittr.Models
             }
         }
 
-        public int Downvotes { get; set; }
+        private string downvoteImageName = "down.png";
+        public string DownvoteImageName
+        {
+            get
+            {
+                return downvoteImageName;
+            }
+            set
+            {
+                SetProperty(ref downvoteImageName, value);
+            }
+        }
+
+        private int downvotes = 0;
+        public int Downvotes { 
+            get { return downvotes; }
+            set { SetProperty(ref downvotes, value); }
+        
+        }
 
         private bool hasUpvoted = false;
         public bool HasUpvoted
@@ -45,7 +63,12 @@ namespace Bittr.Models
             set { SetProperty(ref hasUpvoted, value); }
         }
 
-        public bool HasDownvoted { get; set; }
+        private bool hasDownvoted = false;
+        public bool HasDownvoted { 
+            get { return hasDownvoted; }
+            set { SetProperty(ref hasDownvoted, value); }
+        
+        }
 
         public bool IsFavorite { get; set; }
 

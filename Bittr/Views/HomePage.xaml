@@ -150,9 +150,28 @@
                                     <!--  down vote  -->
 
                                     <ImageButton
-                                        x:Name="downArrow"
-                                        WidthRequest="40"
+                                        x:Name="downArrowVoted"
+                                        Padding="10"
+                                        WidthRequest="60"
+                                        HeightRequest="60"
                                         Aspect="AspectFit"
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding Path=BindingContext.DownvoteCommand, Source={x:Reference ComplaintListView}}"
+                                        CommandParameter="{Binding .}"
+                                        IsVisible="{Binding HasDownvoted, Converter={services:InverseBoolConverter}}"
+                                        Source="{Binding DownvoteImageName}"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Start" />
+                                    <ImageButton
+                                        x:Name="downArrowNotVoted"
+                                        Padding="0"
+                                        WidthRequest="60"
+                                        HeightRequest="60"
+                                        Aspect="AspectFit"
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding Path=BindingContext.DownvoteCommand, Source={x:Reference ComplaintListView}}"
+                                        CommandParameter="{Binding .}"
+                                        IsVisible="{Binding HasDownvoted}"
                                         Source="down.png"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Start" />

@@ -39,8 +39,48 @@ namespace Bittr.ViewModels
                 return new Command((c) =>
                 {
                     var complaint = c as Complaint;
-                    complaint.Upvotes++;
-                    complaint.HasUpvoted = true;
+                    if (complaint.HasUpvoted)
+                    {
+                        complaint.Upvotes--;
+                        complaint.HasUpvoted = false;
+                    }
+                    else
+                    {
+                        complaint.Upvotes++;
+                        complaint.HasUpvoted = true;
+                        if (complaint.HasDownvoted)
+                        {
+                            complaint.Downvotes--;
+                            complaint.HasDownvoted = false;
+                        }
+                    }
+                });
+            }
+        }
+
+        public ICommand DownvoteCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var complaint = c as Complaint;
+                    if (complaint.HasDownvoted)
+                    {
+                        complaint.Downvotes--;
+                        complaint.HasDownvoted = false;
+                    }
+                    else
+                    {
+                        complaint.Downvotes++;
+                        complaint.HasDownvoted = true;
+                        if (complaint.HasUpvoted)
+                        {
+                            complaint.Upvotes--;
+                            complaint.HasUpvoted = false;
+                        }
+                    }
+                    
                 });
             }
         }
