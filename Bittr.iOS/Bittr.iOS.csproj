@@ -170,10 +170,16 @@
     <BundleResource Include="Resources\flag.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\lemondown.png" />
+    <AndroidResource Include="Resources\lemondown.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\lemonup.png" />
+    <AndroidResource Include="Resources\lemonup.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\favorite.png" />
@@ -183,5 +189,20 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\reecenoel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\lemondownfilled.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\lemonupfilled.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lemonplusbad.png" />
   </ItemGroup>
 </Project>

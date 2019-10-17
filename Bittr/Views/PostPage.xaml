@@ -21,7 +21,7 @@
                 MaxLength="169"
                 Placeholder="What are you bittr about?"
                 PlaceholderColor="Gray"
-                Text="{Binding PostText}" />
+                Text="{Binding PostText, Mode=TwoWay}" />
             <ImageButton
                 Grid.Row="0"
                 Grid.Column="0"

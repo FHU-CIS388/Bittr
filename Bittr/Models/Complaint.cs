@@ -8,41 +8,24 @@ namespace Bittr.ViewModels
         public string Id { get; set; }
 
         public string Text { get; set; }
+        public FormattedString FancyText { get; set; }
 
         public DateTime Timestamp { get; set; }
 
         public string ImageName { get; set; }
 
         public Models.User Creator { get; set; }
+        public int Upvotes { get; set; }
 
-        private int upvotes = 0;
-        public int Upvotes
-        {
-            get { return upvotes; }
-            set { SetProperty(ref upvotes, value); }
-        }
+        public string UpvoteImageName = "lemonup.png";
+        
 
-        private string upvoteImageName = "up.png";
-        public string UpvoteImageName
-        {
-            get
-            {
-                return upvoteImageName;
-            }
-            set
-            {
-                SetProperty(ref upvoteImageName, value);
-            }
-        }
+        public string DownVoteImageName = "lemondown.png";
 
         public int Downvotes { get; set; }
 
-        private bool hasUpvoted = false;
-        public bool HasUpvoted
-        {
-            get { return hasUpvoted; }
-            set { SetProperty(ref hasUpvoted, value); }
-        }
+        
+        public bool HasUpvoted { get; set; }
 
         public bool HasDownvoted { get; set; }
 
@@ -52,6 +35,67 @@ namespace Bittr.ViewModels
 
         public Complaint()
         {
+            Upvotes = Downvotes = 0;
+            HasDownvoted = HasUpvoted = IsFavorite = false;
+        }
+        public Complaint(string s)
+        {
+            Upvotes = Downvotes = 0;
+            HasDownvoted = HasUpvoted = IsFavorite = false;
+
+            FormattedString temp = new FormattedString();
+            string[] splitter = { " ", ",", "!", ".", "#", "?" };
+            string[] arr = s.Split(splitter, StringSplitOptions.None);
+            for(int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i].Contains("#"))
+                {
+                    if(i + 1 < arr.Length)
+                    {
+                        temp.Spans.Add(new Span() { Text = "#" + arr[i + 1], TextColor=Color.Blue, FontSize=13.5, FontFamily = "NormalFont" });
+                        i++;
+                    }
+                    else { temp.Spans.Add(new Span() { Text = "#", TextColor=Color.Black, FontSize=14, FontFamily="NormalFont" }); }
+                }
+                else
+                {
+                    temp.Spans.Add(new Span() { Text = arr[i], FontSize = 14, FontFamily = "NormalFont", TextColor=Color.Black });
+                }
+            }
+            FancyText = temp;
+
+        }
+
+        public void UpVote()
+        {
+            if (HasUpvoted) { HasUpvoted = false; Upvotes--; }
+            else if (HasDownvoted) { HasUpvoted = true; HasDownvoted = false; Upvotes++; Downvotes--; }
+            else { HasUpvoted = true; Upvotes++; }
+
+            if (HasUpvoted)
+            {
+                UpvoteImageName = "lemonupfilled.png";
+            }
+            else
+            {
+                UpvoteImageName = "lemonup.png";
+            }
+        }
+
+        public void DownVote()
+        {
+            if (HasDownvoted) { HasDownvoted = false; Downvotes--; }
+            else if (HasUpvoted) { HasUpvoted = false; HasDownvoted = true; Upvotes--; Downvotes++; }
+            else { HasDownvoted = true; Downvotes++; }
+
+            if (HasDownvoted)
+            {
+                DownVoteImageName = "lemondownfilled.png";
+            }
+            else
+            {
+                DownVoteImageName = "lemondown.png";
+            }
         }
 
         public static List<Models.Tag> ExtractTags(string s)

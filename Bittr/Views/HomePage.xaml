@@ -4,6 +4,7 @@
     x:Class="Bittr.Views.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:services="clr-namespace:Bittr.Services"
     Title="BITTR">
     <ContentPage.Content>
 
@@ -19,6 +20,7 @@
             </Grid.ColumnDefinitions>
 
             <ListView
+                x:Name="ListView"
                 Grid.Row="0"
                 Grid.Column="0"
                 HasUnevenRows="True"
@@ -76,44 +78,23 @@
                                         Grid.Column="2"
                                         Margin="2"
                                         BackgroundColor="Transparent"
+                                        Clicked="Report"
                                         Source="flag.png" />
                                 </Grid>
 
                                 <Label
+                                    x:Name="ComplaintText"
                                     Margin="64,8,64,4"
                                     FontFamily="RegularFont"
                                     FontSize="Large"
+                                    FormattedText="{Binding Source=FancyText}"
                                     Text="{Binding Text}" />
                                 <Image
                                     Margin="4,0,4,2"
                                     Aspect="AspectFit"
                                     HorizontalOptions="FillAndExpand"
                                     Source="{Binding ImageName}" />
-                                <FlexLayout
-                                    AlignContent="Start"
-                                    AlignItems="Center"
-                                    BindableLayout.ItemsSource="{Binding Tags}"
-                                    Direction="Row"
-                                    JustifyContent="Start"
-                                    Wrap="Wrap">
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate>
-                                            <Button
-                                                Margin="5,5"
-                                                Padding="0"
-                                                BackgroundColor="Transparent"
-                                                BorderColor="{StaticResource MediumYellow}"
-                                                BorderWidth="1"
-                                                CornerRadius="14"
-                                                FontFamily="{StaticResource RegularFont}"
-                                                FontSize="Body"
-                                                HeightRequest="30"
-                                                Text="{Binding Text}"
-                                                TextColor="{StaticResource TextGray}" />
 
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </FlexLayout>
 
 
 
@@ -132,30 +113,72 @@
                                         <ColumnDefinition Width="4*" />
                                     </Grid.ColumnDefinitions>
                                     <ImageButton
+                                        x:Name="UpVoteButton"
                                         Grid.Row="0"
                                         Grid.Column="0"
                                         Margin="2"
                                         Aspect="Fill"
                                         BackgroundColor="Transparent"
-                                        Source="lemonup.png" />
+                                        Command="{Binding Path=BindingContext.UpVoteCommand, Source={x:Reference ListView}}"
+                                        CommandParameter="{Binding .}"
+                                        HeightRequest="64"
+                                        IsEnabled="{Binding HasUpVoted, Converter={services:InverseBoolConverter}}"
+                                        IsVisible="{Binding HasUpVoted, Converter={services:InverseBoolConverter}}"
+                                        Source="lemonup.png"
+                                        WidthRequest="64" />
+                                    <ImageButton
+                                        x:Name="UpVoteButtonClicked"
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Margin="2"
+                                        Aspect="Fill"
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding Path=BindingContext.UpVoteCommand, Source={x:Reference ListView}}"
+                                        CommandParameter="{Binding .}"
+                                        HeightRequest="64"
+                                        IsEnabled="{Binding HasUpVoted}"
+                                        IsVisible="{Binding HasUpVoted}"
+                                        Source="lemonupfilled.png"
+                                        WidthRequest="64" />
                                     <Label
                                         Grid.Row="0"
                                         Grid.Column="1"
                                         FontSize="Medium"
-                                        Text="{Binding UpVoteCount}"
+                                        Text="{Binding Upvotes}"
                                         TextColor="DarkBlue" />
                                     <ImageButton
+                                        x:Name="DownVoteButton"
                                         Grid.Row="0"
                                         Grid.Column="2"
                                         Margin="2"
                                         Aspect="Fill"
                                         BackgroundColor="Transparent"
-                                        Source="{Binding DownvoteImage}" />
+                                        Command="{Binding Path=BindingContext.DownVoteCommand, Source={x:Reference ListView}}"
+                                        CommandParameter="{Binding .}"
+                                        HeightRequest="64"
+                                        IsEnabled="{Binding HasDownVoted, Converter={services:InverseBoolConverter}}"
+                                        IsVisible="{Binding HasDownVoted, Converter={services:InverseBoolConverter}}"
+                                        Source="lemondown.png"
+                                        WidthRequest="64" />
+                                    <ImageButton
+                                        x:Name="DownVoteButtonClicked"
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        Margin="2"
+                                        Aspect="Fill"
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding Path=BindingContext.DownVoteCommand, Source={x:Reference ListView}}"
+                                        CommandParameter="{Binding .}"
+                                        HeightRequest="64"
+                                        IsEnabled="{Binding HasDownVoted}"
+                                        IsVisible="{Binding HasDownVoted}"
+                                        Source="lemondownfilled.png"
+                                        WidthRequest="64" />
                                     <Label
                                         Grid.Row="0"
                                         Grid.Column="3"
                                         FontSize="Medium"
-                                        Text="{Binding DownVoteCount}"
+                                        Text="{Binding Downvotes}"
                                         TextColor="DarkRed" />
                                     <ImageButton
                                         Grid.Row="0"
@@ -164,14 +187,7 @@
                                         Aspect="Fill"
                                         BackgroundColor="Transparent"
                                         Source="favorite.png" />
-                                    <ProgressBar
-                                        Grid.Row="0"
-                                        Grid.Column="5"
-                                        HorizontalOptions="Center"
-                                        Progress="{Binding Progress}"
-                                        ProgressColor="Goldenrod"
-                                        ScaleX="3.5"
-                                        ScaleY="2" />
+
                                 </Grid>
                             </StackLayout>
                         </ViewCell>

@@ -9,7 +9,7 @@ namespace Bittr.Services
 {
     public class MockDataStoreComplaint : IDataStore<Complaint>
     {
-        List<Complaint> items;
+        private List<Complaint> items;
 
         public MockDataStoreComplaint()
         {
@@ -56,7 +56,7 @@ namespace Bittr.Services
 
         public async Task<bool> AddItemAsync(Complaint item)
         {
-            items.Add(item);
+            items.Insert(0, item);
 
             return await Task.FromResult(true);
         }

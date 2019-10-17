@@ -29,7 +29,7 @@ namespace Bittr.ViewModels
             }
         }
 
-        public ICommand PostComplaintCommand { get; set; }
+        
 
         public ICommand LoadComplaintsCommand { get; set; }
 
@@ -39,13 +39,47 @@ namespace Bittr.ViewModels
             {
                 return new Command((c) =>
                 {
-                    var complaint = c as Complaint;
-                    complaint.Upvotes++;
-                    complaint.HasUpvoted = true;
+                    var C = c as Complaint;
+                    if (C.HasUpvoted) { C.HasUpvoted = false; C.Upvotes--; }
+                    else if (C.HasDownvoted) { C.HasUpvoted = true; C.HasDownvoted = false; C.Upvotes++; C.Downvotes--; }
+                    else { C.HasUpvoted = true; C.Upvotes++; }
+
+                    if (C.HasUpvoted)
+                    {
+                        C.UpvoteImageName = "lemonupfilled.png";
+                    }
+                    else
+                    {
+                        C.UpvoteImageName = "lemonup.png";
+                    }
                 });
             }
         }
 
+        public ICommand DownvoteCommand
+        {
+            get
+            {
+                return new Command((c) =>
+                {
+                    var C = c as Complaint;
+                    if (C.HasDownvoted) { C.HasDownvoted = false; C.Downvotes--; }
+                    else if (C.HasUpvoted) { C.HasUpvoted = false; C.HasDownvoted = true; C.Upvotes--; C.Downvotes++; }
+                    else { C.HasDownvoted = true; C.Downvotes++; }
+
+                    if (C.HasDownvoted)
+                    {
+                        C.DownVoteImageName = "lemondownfilled.png";
+                    }
+                    else
+                    {
+                        C.DownVoteImageName = "lemondown.png";
+                    }
+                });
+            }
+        }
+
+        
 
         public HomeViewModel()
         {
@@ -58,8 +92,8 @@ namespace Bittr.ViewModels
             NewComplaint = new Complaint();
 
             LoadComplaintsCommand = new Command(async () => await LoadComplaints());
-            
 
+            
             //UpvoteCommand = new Command(async(c) => await UpvoteComplaint(c));
 
             LoadComplaintsCommand.Execute(null);
@@ -70,8 +104,7 @@ namespace Bittr.ViewModels
         }
         private async Task PostComplaint(Complaint c)
         {
-            void a() => Complaints.Insert(0, c);
-            await Task.Run(a);
+            await complaintsDataStore.AddItemAsync(c);
         }
 
         private async Task LoadComplaints()

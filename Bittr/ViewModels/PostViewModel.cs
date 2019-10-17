@@ -12,6 +12,7 @@ namespace Bittr.ViewModels
         string PostText { get; set; }
         public PostViewModel()
         {
+            PostText = "";
             MessagingCenter.Subscribe<Views.PostPage>(this, "Post", (sender) => {
                 SendString();
             });
@@ -19,7 +20,7 @@ namespace Bittr.ViewModels
 
         public void SendString()
         {
-            MessagingCenter.Send<PostViewModel, string>(this, "PostString", PostText);
+            if(PostText.Count() > 1) MessagingCenter.Send<PostViewModel, string>(this, "PostString", PostText);
         }
     }
 }

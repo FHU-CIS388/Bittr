@@ -26,5 +26,10 @@ namespace Bittr.Views
             await Navigation.PushModalAsync(new PostPage());
         }
 
+        public async void Report(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ReportPage());
+        }
+
     }
 }
