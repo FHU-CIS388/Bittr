@@ -20,7 +20,7 @@
             </Grid.ColumnDefinitions>
 
             <ListView
-                x:Name="ListView"
+                x:Name="ComplaintListView"
                 Grid.Row="0"
                 Grid.Column="0"
                 HasUnevenRows="True"
@@ -119,14 +119,11 @@
                                         Margin="2"
                                         Aspect="Fill"
                                         BackgroundColor="Transparent"
-                                        Command="{Binding Path=BindingContext.UpVoteCommand, Source={x:Reference ListView}}"
-                                        CommandParameter="{Binding .}"
+                                        Clicked="UpVote"
                                         HeightRequest="64"
-                                        IsEnabled="{Binding HasUpVoted, Converter={services:InverseBoolConverter}}"
-                                        IsVisible="{Binding HasUpVoted, Converter={services:InverseBoolConverter}}"
                                         Source="lemonup.png"
                                         WidthRequest="64" />
-                                    <ImageButton
+                                    <!--   <ImageButton
                                         x:Name="UpVoteButtonClicked"
                                         Grid.Row="0"
                                         Grid.Column="0"
@@ -138,9 +135,10 @@
                                         HeightRequest="64"
                                         IsEnabled="{Binding HasUpVoted}"
                                         IsVisible="{Binding HasUpVoted}"
-                                        Source="lemonupfilled.png"
-                                        WidthRequest="64" />
+                                        Source="{Binding UpVoteImageName}"
+                                        WidthRequest="64" />-->
                                     <Label
+                                        x:Name="UpVoteCount"
                                         Grid.Row="0"
                                         Grid.Column="1"
                                         FontSize="Medium"
@@ -153,14 +151,11 @@
                                         Margin="2"
                                         Aspect="Fill"
                                         BackgroundColor="Transparent"
-                                        Command="{Binding Path=BindingContext.DownVoteCommand, Source={x:Reference ListView}}"
-                                        CommandParameter="{Binding .}"
+                                        Clicked="DownVote"
                                         HeightRequest="64"
-                                        IsEnabled="{Binding HasDownVoted, Converter={services:InverseBoolConverter}}"
-                                        IsVisible="{Binding HasDownVoted, Converter={services:InverseBoolConverter}}"
                                         Source="lemondown.png"
                                         WidthRequest="64" />
-                                    <ImageButton
+                                    <!-- <ImageButton
                                         x:Name="DownVoteButtonClicked"
                                         Grid.Row="0"
                                         Grid.Column="2"
@@ -173,8 +168,9 @@
                                         IsEnabled="{Binding HasDownVoted}"
                                         IsVisible="{Binding HasDownVoted}"
                                         Source="lemondownfilled.png"
-                                        WidthRequest="64" />
+                                        WidthRequest="64" />-->
                                     <Label
+                                        x:Name="DownVoteCount"
                                         Grid.Row="0"
                                         Grid.Column="3"
                                         FontSize="Medium"
@@ -186,6 +182,7 @@
                                         Margin="2"
                                         Aspect="Fill"
                                         BackgroundColor="Transparent"
+                                        Clicked="Favorite"
                                         Source="favorite.png" />
 
                                 </Grid>

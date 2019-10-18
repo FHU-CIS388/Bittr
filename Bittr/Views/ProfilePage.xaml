@@ -11,12 +11,17 @@
             Orientation="Vertical"
             Spacing="8">
             <Label Text="Name" />
-            <Entry HorizontalOptions="FillAndExpand" Text="{Binding PrimaryUser.Name}" />
+            <Entry
+                x:Name="username"
+                HorizontalOptions="FillAndExpand"
+                Text="{Binding Name}" />
             <Label Text="Bio" />
             <Entry
+                x:Name="userbio"
                 HorizontalOptions="FillAndExpand"
-                Text="{Binding PrimaryUser.Bio}"
+                Text="{Binding Bio}"
                 VerticalOptions="StartAndExpand" />
+            <Button Clicked="Update" Text="Update User Info" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -10,15 +10,17 @@ namespace Bittr.ViewModels
     public class ProfileViewModel : ContentView
     {
         public User PrimaryUser;
+        public string Name
+        {
+            get { return PrimaryUser.FullName; }
+        }
+        public string Bio
+        {
+            get { return PrimaryUser.Bio; }
+        }
         public ProfileViewModel()
         {
             PrimaryUser = new User() { Avatar = "reecenoel.png", Bio = "Hello there", Username = "imbatman", FullName = "Reece Noel" };
-            MessagingCenter.Subscribe<PostViewModel, string>(this, "PostString", (sender, arg) =>
-            {
-                MessagingCenter.Send<ProfileViewModel, Complaint>(this, "PostComplaint",
-                    new Complaint() { Creator = PrimaryUser, Downvotes = 0, Upvotes = 0, HasDownvoted = false, HasUpvoted=false, Id=this.GetHashCode().ToString(), Text=arg, Tags=Complaint.ExtractTags(arg) }) ;
-            });
-
         }
     }
 }

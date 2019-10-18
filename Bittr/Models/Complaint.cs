@@ -33,6 +33,8 @@ namespace Bittr.ViewModels
 
         public List<Models.Tag> Tags { get; set; }
 
+        public string FavoriteImageSource = "favorite.png";
+
         public Complaint()
         {
             Upvotes = Downvotes = 0;
@@ -74,6 +76,7 @@ namespace Bittr.ViewModels
 
             if (HasUpvoted)
             {
+                DownVoteImageName = "lemondown.png";
                 UpvoteImageName = "lemonupfilled.png";
             }
             else
@@ -90,6 +93,7 @@ namespace Bittr.ViewModels
 
             if (HasDownvoted)
             {
+                UpvoteImageName = "lemonup.png";
                 DownVoteImageName = "lemondownfilled.png";
             }
             else
@@ -97,6 +101,7 @@ namespace Bittr.ViewModels
                 DownVoteImageName = "lemondown.png";
             }
         }
+
 
         public static List<Models.Tag> ExtractTags(string s)
         {
